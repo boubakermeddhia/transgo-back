@@ -41,7 +41,7 @@ router.route('/update/:id').put(Auth,async(req,res)=>{
         
         if(!existinguser || params.numerotel==existinguser.numerotel){
             if (params.password.length!=0){
-                const hashedpassword=await bcrypt.hash(params?.password,12)
+                const hashedpassword=await bcrypt.hash(params.password,12)
                 var updateuser=await Client.findByIdAndUpdate(id,{password:hashedpassword, numerotel:params.numerotel,
                     matricule:params.matricule,name:params.name,adresse:params.adresse,},{new:true})
                 return res.json({_id:updateuser._id,name:updateuser.name,adresse:updateuser.adresse,createdate:updateuser.createdate,
