@@ -25,4 +25,4 @@ connection.once('open',()=>{
     console.log("mongo db connection established successfully")
 })
 
-app.listen(8000,()=>{console.log('Server is running')})
+app.listen(3000,()=>{console.log('Server is running')})
