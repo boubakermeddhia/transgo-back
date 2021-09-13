@@ -25,4 +25,5 @@ connection.once('open',()=>{
     console.log("mongo db connection established successfully")
 })
 
-app.listen(3000,'0.0.0.0',()=>{console.log('Server is running')})
+var port = process.env.PORT || 8080;
+app.listen(port,'0.0.0.0',()=>{console.log('Server is running')})
