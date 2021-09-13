@@ -26,7 +26,7 @@ router.route('/getordrebydate').post(async(req,res)=>{
     
 })
 
-router.route('/getordrebyid').post(Auth,async(req,res)=>{
+router.route('/getordrebyid').post(async(req,res)=>{
     var l=[]
     const params=req.body
     try {
