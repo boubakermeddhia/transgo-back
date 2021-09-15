@@ -89,7 +89,6 @@ return `
                <td colspan="2">
                   <table>
                      <tr>
-
                         <td class="title">
                           <img  src=${uricodeabaree}
                            style="width:100%; max-width:400px;">

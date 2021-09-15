@@ -21,14 +21,15 @@ router.route('/getordre/:id').get(Auth,async(req,res)=>{
     
 })
 
-router.route('/createdorder').post(Auth,async(req,res)=>{
+router.route('/createdorder').post(async(req,res)=>{
     
     const post=req.body
 
     try {
     const newpost=new Ordre(post)
-      await  newpost.save()
-        res.json({...newpost,status:200})
+          await newpost.save()
+          res.json({newpost,status:200})
+
     } catch (error) {
         res.json({message:"error",status:400})
     }
@@ -52,7 +53,7 @@ router.route('/delete/:id').delete(Auth,async (req,res)=>{
     if(existingorder.status == "Pending"){
     try {
        const data= await Ordre.findByIdAndDelete(req.params.id)
-        res.json({...data,status:200})
+        res.json({status:200})
     } catch (error) {
         res.json({message:"error",status:400})
     }
