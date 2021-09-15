@@ -53,6 +53,8 @@ router.route('/getordrebyid').post(async(req,res)=>{
 router.route('/modifierordre/:id/:status').put(Auth,async (req,res)=>{
 var x=new Date()
     try {
+        const adminverif=await Client.findById(req.userid)
+        if(adminverif.secure=="2af264b99ff1d93e9477482ed9037db8"){
         let modifier=await Ordre.findById(req.params.id)
         modifier.status=req.params.status
         modifier.datefin=x.getFullYear()+"-"+(x.getMonth()+1)+"-"+x.getDate()
@@ -60,7 +62,9 @@ var x=new Date()
         .then(()=>{
             res.json({status:200})
         })
-    
+        }else{
+            res.json({status:400})
+        }
     } catch (error) {
         return  res.json({status:400})
     }
