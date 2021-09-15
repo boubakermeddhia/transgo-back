@@ -6,6 +6,9 @@ const routeruser=require('./routes/client/signclient')
 const routerorder=require('./routes/ordre/ordre')
 const routerordermobile=require('./routes/mobile/mobile_ordre')
 const routerusermobile=require('./routes/mobile/mobile_user')
+const routeradminclient=require('./routes/admin/client')
+const routeradminemployer=require('./routes/admin/employer')
+
 const app=express()
 
 
@@ -17,6 +20,9 @@ app.use('/users',routeruser)
 app.use('/order',routerorder)
 app.use('/mobile/order',routerordermobile)
 app.use('/mobile/user',routerusermobile)
+app.use('/admin/client',routeradminclient)
+app.use('/admin/employer',routeradminemployer)
+
 
 const uri="mongodb+srv://dhia:dhia@cluster0.nkcjd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 mongoose.connect(uri,{ useNewUrlParser: true, useUnifiedTopology: true });

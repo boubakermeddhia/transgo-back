@@ -98,7 +98,6 @@ return `
                         <div style="align-self:center">
                         <img  src="https://ml7r6wwlqi2t.i.optimole.com/aOggx0U-CP_OQ54l/w:auto/h:auto/q:auto/https://transgo.iamabdus.com/v1.1/wp-content/uploads/2019/11/trans-go-logo.svg"
                         style="width:100%; max-width:200px;"> 
-                        <img style="width:12%;height:12%"src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRshL6Ot3AiY1fiaKCzwi14EWWvUH91f7ruHQ&usqp=CAU" className="u-logo-image u-logo-image-1" />
                         </div>
                         </td>
                      </tr>
@@ -111,7 +110,7 @@ return `
                      <tr>
                      <td>
                      <img  src=${uriqrcode}
-                        style="width:100%; max-width:150px;">
+                        style="width:100%; max-width:90px;">
                      </td>
                         <td>
                            Date : ${`${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`}
