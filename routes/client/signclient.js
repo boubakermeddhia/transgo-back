@@ -20,7 +20,7 @@ router.route('/signin').post(async(req,res)=>{
         return  res.json({message:'Error Authientication password is Invalid',status:400})
     }
         const secure= crypto.randomBytes(10).toString("hex")
-        const token=jwt.sign({numerotel:existinguser.numerotel,id:existinguser._id},String(secure),{expiresIn:'1200s'})
+        const token=jwt.sign({numerotel:existinguser.numerotel,id:existinguser._id},String(secure),{expiresIn:'2h'})
         return res.json({_id:existinguser._id,name:existinguser.name,adresse:existinguser.adresse,createdate:existinguser.createdate,
             matricule:existinguser.matricule,name:existinguser.name,numerotel:existinguser.numerotel,token:token+'-'+String(secure)+'-'+String(existinguser.secure),status:200})
         }else{
