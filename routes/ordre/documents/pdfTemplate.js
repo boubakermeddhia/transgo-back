@@ -28,7 +28,7 @@ return `
          text-align: center;
          }
          .invoice-box table {
-         width: 70%;
+         width: 100%;
          line-height: inherit;
          text-align: left;
          }
@@ -48,7 +48,7 @@ return `
          color: #333;
          }
          .invoice-box table tr.information table td {
-         padding-bottom: 40px;
+         padding-bottom: 20px;
          }
          .invoice-box table tr.heading td {
          background: #eee;
@@ -56,7 +56,7 @@ return `
          font-weight: bold;
          }
          .invoice-box table tr.details td {
-         padding-bottom: 20px;
+         padding-bottom: 10px;
          }
          .invoice-box table tr.item td {
          border-bottom: 1px solid #eee;
@@ -70,12 +70,12 @@ return `
          }
          @media only screen and (max-width: 600px) {
          .invoice-box table tr.top table td {
-         width: 70%;
+         width: 100%;
          display: block;
          text-align: center;
          }
          .invoice-box table tr.information table td {
-         width: 70%;
+         width: 100%;
          display: block;
          text-align: center;
          }
