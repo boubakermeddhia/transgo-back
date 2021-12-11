@@ -14,7 +14,7 @@ module.exports = ({ user, l }) => {
                   <tr>
                      <td class="title">
                        <img  src=${uricodeabaree}
-                       style="width:90%; max-width:400px;">
+                       style="width:80%; max-width:400px;">
                         </td>
                      <td>
                      <div style="align-self:center">
@@ -32,7 +32,7 @@ module.exports = ({ user, l }) => {
                   <tr>
                   <td>
                   <img  src=${uriqrcode}
-                  style="width:50%; max-width:90px;">
+                  style="width:60%; max-width:90px;">
                   </td>
                      <td>
                         Date : ${`${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`}
@@ -111,7 +111,6 @@ module.exports = ({ user, l }) => {
   </tr>
       </table>
    </div>
-   <br>
    <br>
    <br>
    <br>
