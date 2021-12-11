@@ -17,14 +17,14 @@ table, th, td {
 <body>
 <h5>Bon de Sortie</h5>
 <img src="https://ml7r6wwlqi2t.i.optimole.com/aOggx0U-CP_OQ54l/w:auto/h:auto/q:auto/https://transgo.iamabdus.com/v1.1/wp-content/uploads/2019/11/trans-go-logo.svg"
-    style="width:100%; max-width:200px; position: absolute; left: 300px;" >
+    style="width:100%; max-width:200px; position: absolute; left: 340px;" >
 <h6> Date : ${`${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`}</h6>
 <br>
 <h5><b>Client(e)</b> ${user.name}, Telephone: ${user.numerotel}, Adresse :${user.adresse}, MF/CIN :${user.matricule}</h5>
 
 <br>
 <br>
-<table style="width:100%">
+<table style="width:255%">
   <tr>
     <th>EAN</th>
     <th>Nom et Prénom</th>
