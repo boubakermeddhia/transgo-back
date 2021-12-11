@@ -110,7 +110,13 @@ module.exports = ({ user, l }) => {
   <td>${Math.round((Number(l[i].prix) + 1 + 7 + 1) * 0.19)} TND</td>
   </tr>
       </table>
-   </div>`
+   </div>
+   <br>
+   <br>
+   <br>
+   <br>
+   `
+   
    }
    return `
 <!doctype html>
