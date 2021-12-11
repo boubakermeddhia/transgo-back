@@ -116,7 +116,6 @@ router.route('/bondelivraison').post(Auth, async (req, res) => {
             res.json({ status: 400 })
         }
     }
-    console.log({user:req.body.user,l:l})
 
     pdf.create(bondelivraison({user:req.body.user,l:l}), {}).toFile('result.pdf', (err) => {
         if (err) {
