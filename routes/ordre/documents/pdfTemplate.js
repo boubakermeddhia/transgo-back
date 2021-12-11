@@ -18,7 +18,7 @@ return `
          font-size: 10px;
          line-height: 24px;
          font-family: 'Helvetica Neue', 'Helvetica';
-         color: #555;
+         color: black;
          }
          .margin-top {
          margin-top: 10px;
