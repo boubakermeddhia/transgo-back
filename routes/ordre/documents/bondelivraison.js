@@ -116,7 +116,6 @@ module.exports = ({ user, l }) => {
    <br>
    <br>
    `
-   
    }
    return `
 <!doctype html>
