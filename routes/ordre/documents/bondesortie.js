@@ -4,7 +4,7 @@ module.exports = ({user,l}) => {
    var text = ''
    for (let i = 0; i < l.length; i++) {
       let uricodeabaree = "https://barcode.tec-it.com/barcode.ashx?data=" + `${l[i]._id}` + "&code=Code128&translate-esc=on"
-      text = text + "<tr>" + "<th>" + `<img src=${uricodeabaree} style="width:150%;">` + "</th>" + "<th>" + l[i].name + "</th>" + "<th>" + l[i].adresse + "</th>" + "<th>" + l[i].numerotel + "</th>" + "<th>" + l[i].naturecolis + "</th>" + "<th>" + l[i].prix + " TND</th>" + "</tr>"
+      text = text + "<tr>" + "<th>" + `<img src=${uricodeabaree} style="width:100%;">` + "</th>" + "<th>" + l[i].name + "</th>" + "<th>" + l[i].adresse + "</th>" + "<th>" + l[i].numerotel + "</th>" + "<th>" + l[i].naturecolis + "</th>" + "<th>" + l[i].prix + " TND</th>" + "</tr>"
    }
    return `
 <!DOCTYPE html>
@@ -24,7 +24,7 @@ table, th, td {
 
 <br>
 <br>
-<table style="width:155%">
+<table style="width:100%">
   <tr>
     <th>EAN</th>
     <th>Nom et Prénom</th>
