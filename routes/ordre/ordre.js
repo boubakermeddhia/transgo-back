@@ -50,17 +50,22 @@ router.route('/update/:id').put(Auth, async (req, res) => {
 })
 
 router.route('/delete/:id').delete(Auth, async (req, res) => {
-    const existingorder = await Ordre.findById(req.params.id)
-    if (existingorder.status == "Pending") {
-        try {
-            const data = await Ordre.findByIdAndDelete(req.params.id)
-            res.json({ status: 200 })
-        } catch (error) {
-            res.json({ message: "error", status: 400 })
+    try {
+        const existingorder = await Ordre.findById(req.params.id)
+        if (existingorder.status == "Pending") {
+            try {
+                await Ordre.findByIdAndDelete(req.params.id)
+                res.json({ status: 200 })
+            } catch (error) {
+                res.json({ message: "error", status: 400 })
+            }
+        } else {
+            res.json({ status: 400 })
         }
-    } else {
-        res.json({ status: 400 })
+    } catch (error) {
+        res.json({ message: "error", status: 400 })
     }
+    
 })
 
 router.route('/create-pdf').post(Auth, (req, res) => {
