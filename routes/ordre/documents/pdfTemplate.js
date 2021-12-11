@@ -18,7 +18,7 @@ return `
          box-shadow: 0 0 10px rgba(0, 0, 0, .15);
          font-size: 10px;
          line-height: 24px;
-         font-family: 'Helvetica Neue', 'Helvetica',
+         font-family: 'Helvetica Neue', 'Helvetica';
          color: #555;
          }
          .margin-top {
