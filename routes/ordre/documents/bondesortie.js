@@ -4,7 +4,7 @@ module.exports = ({user,l}) => {
    var text = ''
    for (let i = 0; i < l.length; i++) {
       let uricodeabaree = "https://barcode.tec-it.com/barcode.ashx?data=" + `${l[i]._id}` + "&code=Code128&translate-esc=on"
-      text = text + "<tr>" + "<th>" + `<img src=${uricodeabaree} style="width:100%;">` + "</th>" + "<th>" + l[i].name + "</th>" + "<th>" + l[i].adresse + "</th>" + "<th>" + l[i].numerotel + "</th>" + "<th>" + l[i].naturecolis + "</th>" + "<th>" + l[i].prix + " TND</th>" + "</tr>"
+      text = text + "<tr>" + "<th>" + `<img src=${uricodeabaree} style="width:80%;">` + "</th>" + "<th>" + l[i].name + "</th>" + "<th>" + l[i].adresse + "</th>" + "<th>" + l[i].numerotel + "</th>" + "<th>" + l[i].naturecolis + "</th>" + "<th>" + l[i].prix + " TND</th>" + "</tr>"
    }
    return `
 <!DOCTYPE html>
@@ -12,7 +12,7 @@ module.exports = ({user,l}) => {
 <style>
 table, th, td {
   border:1px solid black;
-  font-size: 15px;
+  font-size: 9px;
 }
 
 </style>
