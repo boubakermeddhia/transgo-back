@@ -16,7 +16,7 @@ return `
          padding: 30px;
          border: 1px solid #eee;
          box-shadow: 0 0 10px rgba(0, 0, 0, .15);
-         font-size: 16px;
+         font-size: 5px;
          line-height: 24px;
          font-family: 'Helvetica Neue', 'Helvetica',
          color: #555;
@@ -96,7 +96,7 @@ return `
                         <td>
                         <div style="align-self:center">
                         <img  src="https://ml7r6wwlqi2t.i.optimole.com/aOggx0U-CP_OQ54l/w:auto/h:auto/q:auto/https://transgo.iamabdus.com/v1.1/wp-content/uploads/2019/11/trans-go-logo.svg"
-                        style="width:100%; max-width:200px;"> 
+                        style="width:50%; max-width:200px;"> 
                         </div>
                         </td>
                      </tr>
