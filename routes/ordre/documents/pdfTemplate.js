@@ -91,12 +91,12 @@ return `
                      <tr>
                         <td class="title">
                           <img  src=${uricodeabaree}
-                           style="width:90%; max-width:400px;">
+                           style="width:80%; max-width:400px;">
                            </td>
                         <td>
                         <div style="align-self:center">
                         <img  src="https://ml7r6wwlqi2t.i.optimole.com/aOggx0U-CP_OQ54l/w:auto/h:auto/q:auto/https://transgo.iamabdus.com/v1.1/wp-content/uploads/2019/11/trans-go-logo.svg"
-                        style="width:50%; max-width:200px;"> 
+                        style="width:70%; max-width:200px;"> 
                         </div>
                         </td>
                      </tr>
