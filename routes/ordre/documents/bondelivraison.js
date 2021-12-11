@@ -14,12 +14,12 @@ module.exports = ({ user, l }) => {
                   <tr>
                      <td class="title">
                        <img  src=${uricodeabaree}
-                        style="width:100%; max-width:400px;">
+                        style="width:50%; max-width:200px;">
                         </td>
                      <td>
                      <div style="align-self:center">
                      <img  src="https://ml7r6wwlqi2t.i.optimole.com/aOggx0U-CP_OQ54l/w:auto/h:auto/q:auto/https://transgo.iamabdus.com/v1.1/wp-content/uploads/2019/11/trans-go-logo.svg"
-                     style="width:100%; max-width:200px;"> 
+                     style="width:50%; max-width:200px;"> 
                      </div>
                      </td>
                   </tr>
@@ -32,7 +32,7 @@ module.exports = ({ user, l }) => {
                   <tr>
                   <td>
                   <img  src=${uriqrcode}
-                     style="width:100%; max-width:90px;">
+                     style="width:50%; max-width:90px;">
                   </td>
                      <td>
                         Date : ${`${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`}
@@ -108,7 +108,7 @@ module.exports = ({ user, l }) => {
   </tr>
   <tr class="item">
   <td>Prix Total avec TTC (19%):</td>
-  <td>${(Number(l[i].prix) + 1 + 7 + 1) * 0.19} TND</td>
+  <td>${Math.round((Number(l[i].prix) + 1 + 7 + 1) * 0.19)} TND</td>
   </tr>
       </table>
       <br />
