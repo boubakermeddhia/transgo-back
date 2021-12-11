@@ -107,7 +107,7 @@ module.exports = ({ user, l }) => {
   </tr>
   <tr class="item">
   <td>Prix Total avec TTC (19%):</td>
-  <td>${Math.round((Number(order.prix)+7)*(1+0.19))} TND</td>
+  <td>${Math.round((Number(l[i].prix)+7)*(1+0.19))} TND</td>
   </tr>
       </table>
    </div>
