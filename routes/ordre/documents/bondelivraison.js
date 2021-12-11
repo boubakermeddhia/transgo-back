@@ -32,7 +32,7 @@ module.exports = ({ user, l }) => {
                   <tr>
                   <td>
                   <img  src=${uriqrcode}
-                     style="width:50%; max-width:90px;">
+                     style="width:50%; max-width:50px;">
                   </td>
                      <td>
                         Date : ${`${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`}
@@ -57,7 +57,6 @@ module.exports = ({ user, l }) => {
            <td>Address:</td>
            <td>${l[i].adresse}</td>
         </tr>
-
 
         <tr class="heading">
          <td>Expediteur:</td>
