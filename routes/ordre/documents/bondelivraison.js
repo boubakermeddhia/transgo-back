@@ -14,7 +14,7 @@ module.exports = ({ user, l }) => {
                   <tr>
                      <td class="title">
                        <img  src=${uricodeabaree}
-                       style="width:50%; max-width:400px;">
+                       style="width:90%; max-width:400px;">
                         </td>
                      <td>
                      <div style="align-self:center">
