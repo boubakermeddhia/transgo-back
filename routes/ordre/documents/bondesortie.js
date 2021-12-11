@@ -12,7 +12,7 @@ module.exports = ({user,l}) => {
 <style>
 table, th, td {
   border:1px solid black;
-  font-size: 45px;
+  font-size: 5px;
 }
 
 </style>
