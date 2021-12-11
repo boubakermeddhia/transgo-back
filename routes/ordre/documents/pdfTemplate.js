@@ -109,7 +109,7 @@ return `
                      <tr>
                      <td>
                      <img  src=${uriqrcode}
-                        style="width:100%; max-width:90px;">
+                        style="width:50%; max-width:90px;">
                      </td>
                         <td>
                            Date : ${`${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`}
