@@ -28,7 +28,7 @@ return `
          text-align: center;
          }
          .invoice-box table {
-         width: 100%;
+         width: 70%;
          line-height: inherit;
          text-align: left;
          }
@@ -70,12 +70,12 @@ return `
          }
          @media only screen and (max-width: 600px) {
          .invoice-box table tr.top table td {
-         width: 100%;
+         width: 70%;
          display: block;
          text-align: center;
          }
          .invoice-box table tr.information table td {
-         width: 100%;
+         width: 70%;
          display: block;
          text-align: center;
          }
