@@ -40,7 +40,7 @@ return `
          text-align: right;
          }
          .invoice-box table tr.top table td {
-         padding-bottom: 20px;
+         padding-bottom: 10px;
          }
          .invoice-box table tr.top table td.title {
          font-size: 45px;
@@ -48,7 +48,7 @@ return `
          color: #333;
          }
          .invoice-box table tr.information table td {
-         padding-bottom: 20px;
+         padding-bottom: 10px;
          }
          .invoice-box table tr.heading td {
          background: #eee;
