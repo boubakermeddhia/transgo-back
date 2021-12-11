@@ -13,7 +13,7 @@ return `
          .invoice-box {
          max-width: 800px;
          margin: auto;
-         padding: 30px;
+         padding: 10px;
          border: 1px solid #eee;
          box-shadow: 0 0 10px rgba(0, 0, 0, .15);
          font-size: 10px;
@@ -22,7 +22,7 @@ return `
          color: #555;
          }
          .margin-top {
-         margin-top: 50px;
+         margin-top: 10px;
          }
          .justify-center {
          text-align: center;
@@ -40,7 +40,7 @@ return `
          text-align: right;
          }
          .invoice-box table tr.top table td {
-         padding-bottom: 10px;
+         padding-bottom: 1px;
          }
          .invoice-box table tr.top table td.title {
          font-size: 45px;
@@ -48,7 +48,7 @@ return `
          color: #333;
          }
          .invoice-box table tr.information table td {
-         padding-bottom: 10px;
+         padding-bottom: 1px;
          }
          .invoice-box table tr.heading td {
          background: #eee;
@@ -56,7 +56,7 @@ return `
          font-weight: bold;
          }
          .invoice-box table tr.details td {
-         padding-bottom: 10px;
+         padding-bottom: 1px;
          }
          .invoice-box table tr.item td {
          border-bottom: 1px solid #eee;
