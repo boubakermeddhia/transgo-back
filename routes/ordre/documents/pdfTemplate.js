@@ -184,10 +184,6 @@ return `
     <td>${Math.round((Number(order.prix)+7)*(1+0.19))} TND</td>
     </tr>
         </table>
-        <br />
-        <p>NB: La société n'est pas responsable du craquage du produit. Veuillez contacter le vendeur si ce problème se produit. Merci</p>
-         </table>
-         <br />
       </div>
    </body>
 </html>

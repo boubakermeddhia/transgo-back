@@ -110,8 +110,6 @@ module.exports = ({ user, l }) => {
   <td>${Math.round((Number(l[i].prix) + 1 + 7 + 1) * 0.19)} TND</td>
   </tr>
       </table>
-      <br />
-      <p>NB: La société n'est pas responsable du craquage du produit. Veuillez contacter le vendeur si ce problème se produit. Merci</p>
    </div>`
    }
    return `
@@ -124,16 +122,16 @@ module.exports = ({ user, l }) => {
          .invoice-box {
          max-width: 800px;
          margin: auto;
-         padding: 30px;
-         bl[i]: 1px solid #eee;
+         padding: 10px;
+         border: 1px solid #eee;
          box-shadow: 0 0 10px rgba(0, 0, 0, .15);
-         font-size: 16px;
+         font-size: 10px;
          line-height: 24px;
          font-family: 'Helvetica Neue', 'Helvetica';
          color: #555;
          }
          .margin-top {
-         margin-top: 50px;
+         margin-top: 10px;
          }
          .justify-center {
          text-align: center;
@@ -151,7 +149,7 @@ module.exports = ({ user, l }) => {
          text-align: right;
          }
          .invoice-box table tr.top table td {
-         padding-bottom: 20px;
+         padding-bottom: 1px;
          }
          .invoice-box table tr.top table td.title {
          font-size: 45px;
@@ -159,24 +157,24 @@ module.exports = ({ user, l }) => {
          color: #333;
          }
          .invoice-box table tr.information table td {
-         padding-bottom: 40px;
+         padding-bottom: 1px;
          }
          .invoice-box table tr.heading td {
          background: #eee;
-         bl[i]-bottom: 1px solid #ddd;
+         border-bottom: 1px solid #ddd;
          font-weight: bold;
          }
          .invoice-box table tr.details td {
-         padding-bottom: 20px;
+         padding-bottom: 1px;
          }
          .invoice-box table tr.item td {
-         bl[i]-bottom: 1px solid #eee;
+         border-bottom: 1px solid #eee;
          }
          .invoice-box table tr.item.last td {
-         bl[i]-bottom: none;
+         border-bottom: none;
          }
          .invoice-box table tr.total td:nth-child(2) {
-         bl[i]-top: 2px solid #eee;
+         border-top: 2px solid #eee;
          font-weight: bold;
          }
          @media only screen and (max-width: 600px) {
