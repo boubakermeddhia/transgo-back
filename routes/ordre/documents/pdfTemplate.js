@@ -134,8 +134,6 @@ return `
               <td>Address:</td>
               <td>${order.adresse}</td>
            </tr>
-
-
            <tr class="heading">
             <td>Expediteur:</td>
             <td></td>
@@ -156,9 +154,7 @@ return `
            <td>Address:</td>
            <td>${user.adresse}</td>
         </tr>
-        
-
-       
+      
        <tr class="heading">
         <td>Colis:</td>
         <td></td>
@@ -168,14 +164,28 @@ return `
         <td>${order.naturecolis} </td>
      </tr>
      <tr class="item">
-        <td>Prix:</td>
-        <td>${order.prix} TND</td>
-     </tr>
-     <tr class="item">
        <td>Poids:</td>
        <td>${order.poidcolis} KG</td>
     </tr>
-   
+    <tr class="item">
+    <td>Frais de Livraison:</td>
+    <td>7 TND</td>
+    </tr>
+    <tr class="item">
+       <td>Prix brut:</td>
+       <td>${Number(order.prix)} TND</td>
+    </tr>
+    <tr class="item">
+       <td>Prix Total hors TTC:</td>
+       <td>${Number(order.prix) + 7} TND</td>
+    </tr>
+    <tr class="item">
+    <td>Prix Total avec TTC (19%):</td>
+    <td>${(Number(order.prix) + 1 + 7 + 1) * 0.19} TND</td>
+    </tr>
+        </table>
+        <br />
+        <p>NB: La société n'est pas responsable du craquage du produit. Veuillez contacter le vendeur si ce problème se produit. Merci</p>
          </table>
          <br />
       </div>

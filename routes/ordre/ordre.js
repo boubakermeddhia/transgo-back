@@ -4,6 +4,7 @@ const Ordre = require('../../models/ordre')
 const Auth = require('../../middleware/auth')
 const pdfTemplate = require('./documents/pdfTemplate')
 const bondesortie = require('./documents/bondesortie')
+const bondelivraison=require('./documents/bondelivraison')
 const pdf = require('html-pdf')
 const { cwd } = require('process');
 
@@ -99,6 +100,34 @@ router.route('/bondesortie').post(Auth, async (req, res) => {
 })
 
 router.route('/fetch-bondesortie').get(Auth, (req, res) => {
+    res.sendFile(cwd() + '/result.pdf')
+})
+
+router.route('/bondelivraison').post(Auth, async (req, res) => {
+    
+    var l = []
+    for (let i = 0; i < req.body.bondesortie.length; i++) {
+        try {
+            if (req.userid == req.body.user._id) {
+                const result = await Ordre.findById(req.body.bondesortie[i])
+                l.push(result)
+            }
+        } catch (error) {
+            res.json({ status: 400 })
+        }
+    }
+    console.log({user:req.body.user,l:l})
+
+    pdf.create(bondelivraison({user:req.body.user,l:l}), {}).toFile('result.pdf', (err) => {
+        if (err) {
+            res.send(Promise.reject());
+        }
+        res.send(Promise.resolve());
+    })
+
+})
+
+router.route('/fetch-bondelivraison').get(Auth, (req, res) => {
     res.sendFile(cwd() + '/result.pdf')
 })
 
