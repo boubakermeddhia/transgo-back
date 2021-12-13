@@ -161,7 +161,6 @@ router.route('/bonderetour').post(Auth, async (req, res) => {
     } catch (error) {
         res.json({ status: 400 })
     }
-   
 })
 
 router.route('/fetch-bonderetour').get(Auth, (req, res) => {

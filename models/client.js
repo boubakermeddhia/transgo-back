@@ -12,6 +12,10 @@ const postschema=new Schema({
         type:Date,
         default:new Date()
     },
+    payment:{
+        type:Date,
+        default:""
+    },
     secure:{
         type:String,
         default:""

@@ -14,7 +14,7 @@ router.route('/getclient/:id').get(Auth, async (req, res) => {
             if (result.length != 0) {
                 res.json({
                     _id: result[0]._id, name: result[0].name, adresse: result[0].adresse, createdate: result[0].createdate,
-                    matricule: result[0].matricule, name: result[0].name, numerotel: result[0].numerotel, status: 200
+                    matricule: result[0].matricule, name: result[0].name, payment: result[0].payment, numerotel: result[0].numerotel, status: 200
                 })
 
             } else {
@@ -35,8 +35,8 @@ router.route('/getordre/:id').post(Auth, async (req, res) => {
         const user = await Client.findById(req.userid)
         if (user.secure == "2af264b99ff1d93e9477482ed9037db8") {
             const result = await Ordre.find({ idclient: req.params.id })
-            res.json({result, status: 200 })
-            
+            res.json({ result, status: 200 })
+
         } else {
             res.json({ status: 400 })
         }
