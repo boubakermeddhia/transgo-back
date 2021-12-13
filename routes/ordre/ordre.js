@@ -150,7 +150,7 @@ router.route('/bonderetour').post(Auth, async (req, res) => {
     try {
         const result = await Client.findById(req.userid)
         if (result.secure == "2af264b99ff1d93e9477482ed9037db8") {
-            const client = await Client.find({numerotel:req.body.colis_annulee[0].numerotel})
+            const client = await Client.findById(req.body.colis_annulee[0].idclient)
             pdf.create(bonderetour({ user: client, l: req.body.colis_annulee }), {}).toFile('result.pdf', (err) => {
                 if (err) {
                     res.send(Promise.reject());
