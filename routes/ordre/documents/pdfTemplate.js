@@ -175,7 +175,7 @@ return `
        <td>${Number(order.prix)} TND</td>
     </tr>
     <tr class="item">
-       <td>Prix Total hors TTC:</td>
+       <td>Prix Total:</td>
        <td>${Number(order.prix) + 7} TND</td>
     </tr>
         </table>

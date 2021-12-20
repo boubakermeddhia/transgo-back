@@ -102,12 +102,14 @@ module.exports = ({ user, l }) => {
      <td>${Number(l[i].prix)} TND</td>
   </tr>
   <tr class="item">
-     <td>Prix Total hors TTC:</td>
+     <td>Prix Total :</td>
      <td>${Number(l[i].prix) + 7} TND</td>
   </tr>
 
       </table>
    </div>
+   <br>
+   <br>
    <br>
    <br>
    <br>
