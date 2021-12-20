@@ -178,10 +178,6 @@ return `
        <td>Prix Total hors TTC:</td>
        <td>${Number(order.prix) + 7} TND</td>
     </tr>
-    <tr class="item">
-    <td>Prix Total avec TTC (19%):</td>
-    <td>${Math.round((Number(order.prix)+7)*(1+0.19))} TND</td>
-    </tr>
         </table>
       </div>
    </body>
