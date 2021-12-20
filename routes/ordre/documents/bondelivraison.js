@@ -113,7 +113,6 @@ module.exports = ({ user, l }) => {
    <br>
    <br>
    <br>
-   <br>
    `
    }
    return `
