@@ -23,7 +23,7 @@ router.route('/signin').post(async (req, res) => {
             const token = jwt.sign({ numerotel: existinguser.numerotel, id: existinguser._id }, String(secure), { expiresIn: '2h' })
             return res.json({
                 _id: existinguser._id, name: existinguser.name, adresse: existinguser.adresse, createdate: existinguser.createdate,
-                matricule: existinguser.matricule, name: existinguser.name, numerotel: existinguser.numerotel, token: token + '-' + String(secure) + '-' + String(existinguser.secure), status: 200
+                matricule: existinguser.matricule, name: existinguser.name,payment:existinguser.payment, numerotel: existinguser.numerotel, token: token + '-' + String(secure) + '-' + String(existinguser.secure), status: 200
             })
         } else {
             res.json({ status: 401 })
