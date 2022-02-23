@@ -1,27 +1,35 @@
-const mongoose=require('mongoose')
+const mongoose = require('mongoose')
 
-const Schema=mongoose.Schema
+const Schema = mongoose.Schema
 
-const postschema=new Schema({
-    numerotel:{type:String,unique:true,required:true},
-    matricule:String,
-    name:String,
-    password:String,
-    adresse:{type:String,required:true},
-    createdate:{
-        type:Date,
-        default:new Date()
+const postschema = new Schema({
+    numerotel: { type: String, unique: true, required: true },
+    matricule: String,
+    name: String,
+    password: String,
+    adresse: { type: String, required: true },
+    createdate: {
+        type: Date,
+        default: new Date()
     },
-    payment:{
-        type:Date,
-        default:""
+    payment: {
+        type: Date,
+        default: ""
     },
-    secure:{
-        type:String,
-        default:""
-    }
+    secure: {
+        type: String,
+        default: ""
+    },
+    colis_info: {
+        type: Array,
+        default: []
+    },
+    colis_pending: {
+        type: Array,
+        default: []
+    },
 })
 
-const Client=mongoose.model('clients',postschema)
+const User = mongoose.model('Users', postschema)
 
-module.exports= Client
+module.exports = User

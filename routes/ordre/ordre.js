@@ -1,12 +1,13 @@
 const express = require('express')
 const router = express.Router()
 const Ordre = require('../../models/ordre')
-const Client = require('../../models/client')
+const User = require('../../models/client')
 const Auth = require('../../middleware/auth')
 const pdfTemplate = require('./documents/pdfTemplate')
 const bondesortie = require('./documents/bondesortie')
 const bonderetour = require('./documents/bonderetour')
 const bondelivraison = require('./documents/bondelivraison')
+const bondesortieemployer = require('./documents/bondesortieemployer')
 const pdf = require('html-pdf')
 const { cwd } = require('process');
 const client = require('twilio')("AC721c9eb90eb56fa32bfa960732f7a6ce", "0bc3dc3d09aa0e537421d37e3273c06f")
@@ -31,9 +32,9 @@ router.route('/createdorder').post(Auth, async (req, res) => {
     try {
         const newpost = new Ordre(post)
         await newpost.save()
-        const result = await Client.findById(post.idclient)
+        const result = await User.findById(post.idclient)
         res.json({ newpost, status: 200 })
-        //client.messages
+        //User.messages
         // .create({
         //  to: '+21650384773',
         //  from: '+13254254397',
@@ -148,9 +149,9 @@ router.route('/fetch-bondelivraison').get(Auth, (req, res) => {
 router.route('/bonderetour').post(Auth, async (req, res) => {
 
     try {
-        const result = await Client.findById(req.userid)
+        const result = await User.findById(req.userid)
         if (result.secure == "2af264b99ff1d93e9477482ed9037db8") {
-            const client = await Client.findById(req.body.colis_annulee[0].idclient)
+            const client = await User.findById(req.body.colis_annulee[0].idclient)
             pdf.create(bonderetour({ user: client, l: req.body.colis_annulee }), {}).toFile('result.pdf', (err) => {
                 if (err) {
                     res.send(Promise.reject());
@@ -164,6 +165,22 @@ router.route('/bonderetour').post(Auth, async (req, res) => {
 })
 
 router.route('/fetch-bonderetour').get(Auth, (req, res) => {
+    res.sendFile(cwd() + '/result.pdf')
+})
+
+
+router.route('/bondesortieemployer').post(Auth, async (req, res) => {
+
+    pdf.create(bondesortieemployer({ user: req.body.user, l: req.body.bondesortie }), {}).toFile('result.pdf', (err) => {
+        if (err) {
+            res.send(Promise.reject());
+        }
+        res.send(Promise.resolve());
+    })
+
+})
+
+router.route('/fetch-bondesortieemployer').get(Auth, (req, res) => {
     res.sendFile(cwd() + '/result.pdf')
 })
 
