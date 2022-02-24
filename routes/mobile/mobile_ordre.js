@@ -143,7 +143,8 @@ router.route('/getmyjobemployer/:id').get(Auth, async (req, res) => {
         if (user.secure == "9d104bb414a6226e2289e6eba70c0518") {
             try {
                 const result = await Ordre.findById(req.params.id)
-                res.json({ colis_pending: [result], status: 200 })
+                const user = await User.findById(result.idclient)
+                res.json({ colis_pending: [result], user: [user], status: 200 })
             } catch (error) {
                 res.json({ status: 400 })
             }
