@@ -105,4 +105,31 @@ router.route('/payment').post(Auth, async (req, res) => {
         res.json({ status: 400 })
     }
 })
+
+router.route('/payment/employer').post(Auth, async (req, res) => {
+    const date = req.body.payment
+    const use = req.body.user
+    try {
+        const admin = await User.findById(req.userid)
+        if (admin.secure == "2af264b99ff1d93e9477482ed9037db8") {
+            const existinguser = await User.findById(use)
+            if (existinguser.secure == "9d104bb414a6226e2289e6eba70c0518") {
+                if (existinguser) {
+                    existinguser.payment = date
+                    await User.findByIdAndUpdate(existinguser._id, existinguser, { new: true })
+                    res.json({ status: 200 })
+                }
+            }
+            else {
+                res.json({ status: 400 })
+            }
+        }
+        else {
+            res.json({ status: 400 })
+        }
+
+    } catch (error) {
+        res.json({ status: 400 })
+    }
+})
 module.exports = router

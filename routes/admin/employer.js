@@ -66,7 +66,7 @@ router.route('/get_info_employer/:id').get(Auth, async (req, res) => {
                     res.json({
                         _id: result[0]._id, name: result[0].name, adresse: result[0].adresse, createdate: result[0].createdate,
                         matricule: result[0].matricule, name: result[0].name, numerotel: result[0].numerotel, colis_pending: colis_pending,
-                        colis_info: colis_info, status: 200
+                        colis_info: colis_info, payment: result[0].payment, status: 200
                     })
                 } else {
                     res.json({ status: 400 })
