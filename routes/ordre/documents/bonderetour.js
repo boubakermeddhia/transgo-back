@@ -2,6 +2,7 @@ module.exports = ({ user, l }) => {
   const today = new Date();
   const uriqrcode = "https://barcode.tec-it.com/barcode.ashx?data=" + "55555" + "&code=MobileQRCode"
   var text = ''
+  const coli_total=l.length
   const somme_total = l.reduce((total, res) => total = total + Number(res.prix) * Number(res.qte), 0)
   const frais_total = l.reduce((total, res) => total = total + Number(res.frais_sup) + Number(res.frais_colis) + Number(res.frais_annulation), 0)
   for (let i = 0; i < l.length; i++) {
@@ -25,6 +26,8 @@ module.exports = ({ user, l }) => {
  <h6> Date : ${`${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`}</h6>
  <br>
  <h5><b>Client(e):</b> ${user.name}, Téléphone: ${user.numerotel}, Adresse :${user.adresse}, MF/CIN :${user.matricule}</h5>
+ 
+ <h5>Nombre Total de colis  : ${coli_total} </h5>
  <h5>Somme Total sans frais : ${somme_total} TND</h5>
  <h5>Frais Total : ${frais_total} TND</h5>
  <h5>Prix Total : ${somme_total - frais_total} TND</h5>
