@@ -34,7 +34,7 @@ table, th, td {
     <th>Désignation </th>
     <th>Prix Unitaire</th>
     <th>Quantite</th>
-    <td>Prix Total</td>
+    <th>Prix Total</th>
   </tr>
   ${text}
 </table>
