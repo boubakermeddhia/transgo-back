@@ -49,7 +49,7 @@ router.route('/getordre/:id').get(Auth, async (req, res) => {
         const user = await User.findById(req.userid)
         if (user.secure == "2af264b99ff1d93e9477482ed9037db8") {
             const result = await Ordre.findById(req.params.id)
-            res.json({ result, status: 200 })
+            res.json({ result: result, status: 200 })
 
         } else {
             res.json({ status: 400 })
