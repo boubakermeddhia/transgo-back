@@ -116,11 +116,6 @@ module.exports = ({ user, l }) => {
 
       </table>
    </div>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
    `
    }
    return `
