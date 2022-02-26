@@ -2,6 +2,7 @@ const express = require('express')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const User = require('../../models/client')
+const Ordre = require('../../models/ordre')
 const Auth = require('../../middleware/auth')
 const crypto = require('crypto')
 const router = express.Router()
@@ -132,4 +133,24 @@ router.route('/payment/employer').post(Auth, async (req, res) => {
         res.json({ status: 400 })
     }
 })
+
+router.route('/accee/employer').post(Auth, async (req, res) => {
+    const colis = req.body.id
+    const type = req.body.type
+    try {
+        const admin = await User.findById(req.userid)
+        if (admin.secure == "577d7068826de925ea2aec01dbadf5e4") {
+            const existinguser = await Ordre.findById(colis)
+            existinguser.isActif = type
+            await Ordre.findByIdAndUpdate(colis, existinguser, { new: true })
+            res.json({ status: 200 })
+        }
+        else {
+            res.json({ status: 400 })
+        }
+    } catch (error) {
+        res.json({ status: 400 })
+    }
+})
+
 module.exports = router

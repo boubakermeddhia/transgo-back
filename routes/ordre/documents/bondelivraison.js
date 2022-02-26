@@ -90,20 +90,28 @@ module.exports = ({ user, l }) => {
      <td>${l[i].naturecolis} </td>
   </tr>
   <tr class="item">
-    <td>Poids:</td>
-    <td>${l[i].poidcolis} KG</td>
+    <td>Quantite:</td>
+    <td>${l[i].qte}</td>
+ </tr>
+ <tr class="item">
+       <td>Prix Unitaire:</td>
+       <td>${l[i].prix} TND</td>
+    </tr>
+ <tr class="item">
+ <td>Frais de Livraison:</td>
+ <td>${l[i].frais_colis} TND</td>
+ </tr>
+ <tr class="item">
+ <td>Frais Supplémentaire:</td>
+ <td>${l[i].frais_sup} TND</td>
  </tr>
   <tr class="item">
-  <td>Frais de Livraison:</td>
-  <td>7 TND</td>
-  </tr>
-  <tr class="item">
      <td>Prix brut:</td>
-     <td>${Number(l[i].prix)} TND</td>
+     <td>${Number(l[i].prix) * Number(l[i].qte)} TND</td>
   </tr>
   <tr class="item">
      <td>Prix Total :</td>
-     <td>${Number(l[i].prix) + 7} TND</td>
+     <td>${Number(l[i].prix) * Number(l[i].qte) + Number(l[i].frais_sup) + Number(l[i].frais_colis)} TND</td>
   </tr>
 
       </table>

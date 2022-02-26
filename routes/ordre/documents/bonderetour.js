@@ -2,11 +2,11 @@ module.exports = ({ user, l }) => {
   const today = new Date();
   const uriqrcode = "https://barcode.tec-it.com/barcode.ashx?data=" + "55555" + "&code=MobileQRCode"
   var text = ''
-  const somme_total = l.reduce((total, res) => total = total + Number(res.prix), 0)
-  const frais_total = l.length * 2
+  const somme_total = l.reduce((total, res) => total = total + Number(res.prix) * Number(res.qte), 0)
+  const frais_total = l.reduce((total, res) => total = total + Number(res.frais_sup) + Number(res.frais_colis) + Number(res.frais_annulation), 0)
   for (let i = 0; i < l.length; i++) {
     let uricodeabaree = "https://barcode.tec-it.com/barcode.ashx?data=" + `${l[i]._id}` + "&code=Code128&translate-esc=on"
-    text = text + "<tr>" + "<th><br>" + `<img src=${uricodeabaree} style="width:80%;">` + "</th>" + "<th>" + l[i].name + "</th>" + "<th>" + l[i].adresse + "</th>" + "<th>" + l[i].numerotel + "</th>" + "<th>" + l[i].naturecolis + "</th>" + "<th>" + l[i].prix + " TND</th>" + "</tr>"
+    text = text + "<tr>" + "<th><br>" + `<img src=${uricodeabaree} style="width:80%;">` + "</th>" + "<th>" + l[i].name + "</th>" + "<th>" + l[i].adresse + "</th>" + "<th>" + l[i].numerotel + "</th>" + "<th>" + l[i].naturecolis + "</th>" + "<th>" + l[i].prix + " TND</th>" + "<th>" + l[i].qte + "</th>" + "</tr>"
   }
   return `
  <!DOCTYPE html>
@@ -36,6 +36,7 @@ module.exports = ({ user, l }) => {
      <th>Numéro telephone</th>
      <th>Désignation </th>
      <th>Prix</th>
+     <th>Quantite</th>
    </tr>
    ${text}
  </table>

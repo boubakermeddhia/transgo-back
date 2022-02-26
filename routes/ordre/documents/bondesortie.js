@@ -1,11 +1,11 @@
 module.exports = ({ user, l }) => {
   const today = new Date();
   const uriqrcode = "https://barcode.tec-it.com/barcode.ashx?data=" + "55555" + "&code=MobileQRCode"
-  const somme_total = l.reduce((total, res) => total = total + Number(res.prix), 0)
+  const somme_colis = l.length
   var text = ''
   for (let i = 0; i < l.length; i++) {
     let uricodeabaree = "https://barcode.tec-it.com/barcode.ashx?data=" + `${l[i]._id}` + "&code=Code128&translate-esc=on"
-    text = text + "<tr>" + "<th><br>" + `<img src=${uricodeabaree} style="width:80%;">` + "</th>" + "<th>" + l[i].name + "</th>" + "<th>" + l[i].adresse + "</th>" + "<th>" + l[i].numerotel + "</th>" + "<th>" + l[i].naturecolis + "</th>" + "<th>" + l[i].prix + " TND</th>" + "</tr>"
+    text = text + "<tr>" + "<th><br>" + `<img src=${uricodeabaree} style="width:80%;">` + "</th>" + "<th>" + l[i].name + "</th>" + "<th>" + l[i].adresse + "</th>" + "<th>" + l[i].numerotel + "</th>" + "<th>" + l[i].naturecolis + "</th>" + "<th>" + l[i].prix + " TND</th>" + "<th>" + l[i].qte + "</th>" + "</tr>"
   }
   return `
 <!DOCTYPE html>
@@ -24,7 +24,7 @@ table, th, td {
 <h6> Date : ${`${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`}</h6>
 <br>
 <h5><b>Client(e):</b> ${user.name}, Téléphone: ${user.numerotel}, Adresse :${user.adresse}, MF/CIN :${user.matricule}</h5>
-<h5>Prix Total : ${somme_total} TND</h5>
+<h5>Nombre Total de Colis : ${somme_colis}</h5>
 <table style="width:100%">
   <tr>
     <th>EAN</th>
@@ -32,7 +32,8 @@ table, th, td {
     <th>Adresse</th>
     <th>Numéro telephone</th>
     <th>Désignation </th>
-    <th>Prix</th>
+    <th>Prix Unitaire</th>
+    <th>Quantite</th>
   </tr>
   ${text}
 </table>

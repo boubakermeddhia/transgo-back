@@ -1,9 +1,9 @@
-module.exports = ({user,order}) => {
-    const today = new Date();
-    const uricodeabaree="https://barcode.tec-it.com/barcode.ashx?data="+`${order._id}`+"&code=Code128&translate-esc=on"
-    const uriqrcode="https://barcode.tec-it.com/barcode.ashx?data="+`${order._id}`+"&code=MobileQRCode"
+module.exports = ({ user, order }) => {
+   const today = new Date();
+   const uricodeabaree = "https://barcode.tec-it.com/barcode.ashx?data=" + `${order._id}` + "&code=Code128&translate-esc=on"
+   const uriqrcode = "https://barcode.tec-it.com/barcode.ashx?data=" + `${order._id}` + "&code=MobileQRCode"
 
-return `
+   return `
 <!doctype html>
 <html>
    <head>
@@ -163,23 +163,31 @@ return `
         <td>${order.naturecolis} </td>
      </tr>
      <tr class="item">
-       <td>Poids:</td>
-       <td>${order.poidcolis} KG</td>
+     <td>Quantite:</td>
+     <td>${order.qte}</td>
+         </tr>
+     <tr class="item">
+       <td>Prix Unitaire:</td>
+       <td>${order.prix} TND</td>
     </tr>
     <tr class="item">
     <td>Frais de Livraison:</td>
-    <td>7 TND</td>
+    <td>${order.frais_colis} TND</td>
+    </tr>
+    <tr class="item">
+    <td>Frais Supplémentaire:</td>
+    <td>${order.frais_sup} TND</td>
     </tr>
     <tr class="item">
        <td>Prix brut:</td>
-       <td>${Number(order.prix)} TND</td>
+       <td>${Number(order.prix) * Number(order.qte)} TND</td>
     </tr>
     <tr class="item">
-       <td>Prix Total:</td>
-       <td>${Number(order.prix) + 7} TND</td>
+       <td>Prix Total (Tous frais inclus) :</td>
+       <td>${Number(order.prix) * Number(order.qte) + Number(order.frais_sup) + Number(order.frais_colis)} TND</td>
     </tr>
         </table>
-      </div>
+      </div> 
    </body>
 </html>
 `

@@ -173,7 +173,7 @@ router.route('/bondesortieemployer').post(Auth, async (req, res) => {
 
     pdf.create(bondesortieemployer({ user: req.body.user, l: req.body.bondesortie }), {}).toFile('result.pdf', (err) => {
         if (err) {
-            res.send(Promise.reject());
+            res.send(Promise.reject())
         }
         res.send(Promise.resolve());
     })
