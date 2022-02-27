@@ -8,6 +8,8 @@ const routerordermobile=require('./routes/mobile/mobile_ordre')
 const routerusermobile=require('./routes/mobile/mobile_user')
 const routeradminclient=require('./routes/admin/client')
 const routeradminemployer=require('./routes/admin/employer')
+const routercolis=require('./routes/admin/colis')
+
 
 const app=express()
 
@@ -18,6 +20,7 @@ app.use(cors())
 
 app.use('/users',routeruser)
 app.use('/order',routerorder)
+app.use('/colis',routercolis)
 app.use('/mobile/order',routerordermobile)
 app.use('/mobile/user',routerusermobile)
 app.use('/admin/client',routeradminclient)
