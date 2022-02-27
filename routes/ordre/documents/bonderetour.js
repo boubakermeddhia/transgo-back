@@ -17,7 +17,6 @@ module.exports = ({ user, l }) => {
    border:1px solid black;
    font-size: 9px;
  }
- 
  </style>
  <body>
  <img src="https://ml7r6wwlqi2t.i.optimole.com/aOggx0U-CP_OQ54l/w:auto/h:auto/q:auto/https://transgo.iamabdus.com/v1.1/wp-content/uploads/2019/11/trans-go-logo.svg"

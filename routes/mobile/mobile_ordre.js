@@ -9,6 +9,7 @@ router.route('/getordrebydate').post(async (req, res) => {
     const params = req.body
     try {
         const result = await Ordre.find({ createdate: { $gt: params.datedebut, $lt: params.datefin } })
+        console.log(result)
         for (let i = 0; i < result.length; i++) {
             var user = await User.findById(result[i].idclient)
             l.push({

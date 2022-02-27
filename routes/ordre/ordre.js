@@ -168,7 +168,6 @@ router.route('/fetch-bonderetour').get(Auth, (req, res) => {
     res.sendFile(cwd() + '/result.pdf')
 })
 
-
 router.route('/bondesortieemployer').post(Auth, async (req, res) => {
 
     pdf.create(bondesortieemployer({ user: req.body.user, l: req.body.bondesortie }), {}).toFile('result.pdf', (err) => {

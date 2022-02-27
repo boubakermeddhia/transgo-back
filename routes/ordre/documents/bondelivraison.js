@@ -1,8 +1,19 @@
 module.exports = ({ user, l }) => {
    const today = new Date();
-
+   var somme = 0
+   var frais = 0
    var text = ''
    for (let i = 0; i < l.length; i++) {
+
+      if (l[i].frais_inclus) {
+         somme = Number(l[i].prix) * Number(l[i].qte) + Number(l[i].frais_sup)
+         frais = 0
+      } else {
+         somme = Number(l[i].prix) * Number(l[i].qte) + Number(l[i].frais_sup) + Number(l[i].frais_colis)
+         frais = Number(l[i].frais_colis)
+      }
+
+
       let uricodeabaree = "https://barcode.tec-it.com/barcode.ashx?data=" + `${l[i]._id}` + "&code=Code128&translate-esc=on"
       let uriqrcode = "https://barcode.tec-it.com/barcode.ashx?data=" + `${l[i]._id}` + "&code=MobileQRCode"
 
@@ -94,24 +105,16 @@ module.exports = ({ user, l }) => {
     <td>${l[i].qte}</td>
  </tr>
  <tr class="item">
-       <td>Prix Unitaire:</td>
-       <td>${l[i].prix} TND</td>
-    </tr>
- <tr class="item">
  <td>Frais de Livraison:</td>
- <td>${l[i].frais_colis} TND</td>
+ <td>${frais} TND</td>
  </tr>
  <tr class="item">
  <td>Frais Supplémentaire:</td>
  <td>${l[i].frais_sup} TND</td>
  </tr>
   <tr class="item">
-     <td>Prix brut:</td>
-     <td>${Number(l[i].prix) * Number(l[i].qte)} TND</td>
-  </tr>
-  <tr class="item">
      <td>Prix Total :</td>
-     <td>${Number(l[i].prix) * Number(l[i].qte) + Number(l[i].frais_sup) + Number(l[i].frais_colis)} TND</td>
+     <td>${somme} TND</td>
   </tr>
 
       </table>
@@ -119,6 +122,8 @@ module.exports = ({ user, l }) => {
  
    
    `
+      somme = 0
+      frais = 0
    }
    return `
 <!doctype html>
@@ -131,7 +136,7 @@ module.exports = ({ user, l }) => {
          max-width: 800px;
          margin: auto;
          padding: 10px;
-         border: 1px solid #eee;
+         bl[i]: 1px solid #eee;
          font-size: 10px;
          line-height: 24px;
          font-family: 'Helvetica Neue', 'Helvetica';
@@ -168,20 +173,20 @@ module.exports = ({ user, l }) => {
          }
          .invoice-box table tr.heading td {
          background: #eee;
-         border-bottom: 1px solid #ddd;
+         bl[i]-bottom: 1px solid #ddd;
          font-weight: bold;
          }
          .invoice-box table tr.details td {
          padding-bottom: 1px;
          }
          .invoice-box table tr.item td {
-         border-bottom: 1px solid #eee;
+         bl[i]-bottom: 1px solid #eee;
          }
          .invoice-box table tr.item.last td {
-         border-bottom: none;
+         bl[i]-bottom: none;
          }
          .invoice-box table tr.total td:nth-child(2) {
-         border-top: 2px solid #eee;
+         bl[i]-top: 2px solid #eee;
          font-weight: bold;
          }
          @media only screen and (max-width: 600px) {
