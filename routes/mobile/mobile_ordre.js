@@ -114,10 +114,8 @@ router.route('/getmyjob').get(Auth, async (req, res) => {
 
 router.route('/modifierordrebyemployer/:id/:status').get(Auth, async (req, res) => {
     var x = new Date()
-    var l = []
     try {
         let adminverif = await User.findById(req.userid)
-        console.log(l)
         if (adminverif.secure == "9d104bb414a6226e2289e6eba70c0518") {
             let modifier = await Ordre.findById(req.params.id)
             modifier.status = req.params.status
@@ -134,7 +132,6 @@ router.route('/modifierordrebyemployer/:id/:status').get(Auth, async (req, res) 
     } catch (error) {
         return res.json({ status: 400 })
     }
-
 })
 
 router.route('/getmyjobemployer/:id').get(Auth, async (req, res) => {
