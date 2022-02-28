@@ -28,6 +28,9 @@ const postschema = new Schema({
         type: Array,
         default: []
     },
+    frais_sup: { type: String, default: "0" },
+    frais_colis: { type: String, default: "7" },
+    frais_annulation: { type: String, default: "2" },
 })
 
 const User = mongoose.model('Users', postschema)

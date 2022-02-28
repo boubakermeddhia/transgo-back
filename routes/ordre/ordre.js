@@ -29,11 +29,10 @@ router.route('/getordre/:id').get(Auth, async (req, res) => {
 router.route('/createdorder').post(Auth, async (req, res) => {
 
     const post = req.body
-
     try {
-        const newpost = new Ordre(post)
+        const result = await User.findById(req.userid)
+        const newpost = new Ordre({ ...post, frais_sup: result.frais_sup, frais_colis: result.frais_colis, frais_annulation: result.frais_annulation })
         await newpost.save()
-        const result = await User.findById(post.idclient)
         res.json({ newpost, status: 200 })
         //User.messages
         // .create({
@@ -42,6 +41,7 @@ router.route('/createdorder').post(Auth, async (req, res) => {
         // body: `${result.name} a Ajoutée un Colis`,
         //   })
         //  .then(message => console.log(message.sid))
+
 
     } catch (error) {
         res.json({ message: "error", status: 400 })

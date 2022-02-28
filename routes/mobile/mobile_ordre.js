@@ -68,6 +68,7 @@ router.route('/modifierordre/:id/:status').put(Auth, async (req, res) => {
         if (adminverif.secure == "2af264b99ff1d93e9477482ed9037db8") {
             let modifier = await Ordre.findById(req.params.id)
             modifier.status = req.params.status
+            modifier.id_livreur = req.userid
             modifier.datefin = x.getFullYear() + "-" + (x.getMonth() + 1) + "-" + x.getDate()
             await Ordre.findByIdAndUpdate(req.params.id, modifier, { new: true })
                 .then(() => {
@@ -119,6 +120,7 @@ router.route('/modifierordrebyemployer/:id/:status').get(Auth, async (req, res) 
         if (adminverif.secure == "9d104bb414a6226e2289e6eba70c0518") {
             let modifier = await Ordre.findById(req.params.id)
             modifier.status = req.params.status
+            modifier.id_livreur = req.userid
             modifier.datefin = x.getFullYear() + "-" + (x.getMonth() + 1) + "-" + x.getDate()
             await Ordre.findByIdAndUpdate(req.params.id, modifier, { new: true })
                 .then(async () => {

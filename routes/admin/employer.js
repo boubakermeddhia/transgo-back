@@ -26,7 +26,7 @@ router.route('/getemployer/:id').get(Auth, async (req, res) => {
             if (result.length != 0) {
                 res.json({
                     _id: result[0]._id, name: result[0].name, adresse: result[0].adresse, createdate: result[0].createdate,
-                    matricule: result[0].matricule, name: result[0].name, numerotel: result[0].numerotel, status: 200
+                    matricule: result[0].matricule, secure: result[0].secure, numerotel: result[0].numerotel, status: 200
                 })
 
             } else {
@@ -130,7 +130,75 @@ router.route('/nouvel_journee').post(Auth, async (req, res) => {
     }
 })
 
+router.route('/modifier').post(Auth, async (req, res) => {
+    try {
+        console.log(req.body);
+        const user = await User.findById(req.userid)
+        if (user.secure == "2af264b99ff1d93e9477482ed9037db8") {
+            const result = await User.find({ _id: req.body.id })
+            console.log(result);
+            if (result.length != 0) {
+                result[0].frais_sup = req.body.frais_sup
+                result[0].frais_colis = req.body.frais_colis
+                result[0].frais_annulation = req.body.frais_annulation
+                await User.findByIdAndUpdate(result[0]._id, result[0], { new: true })
+                res.json({ status: 200 })
+            } else {
+                res.json({ status: 400 })
+            }
 
+        } else {
+            res.json({ status: 400 })
+        }
+    } catch (error) {
+        res.json({ status: 401 })
+    }
+
+})
+
+router.route('/getemployer/').post(Auth, async (req, res) => {
+    try {
+        const user = await User.findById(req.userid)
+        if (user.secure == "2af264b99ff1d93e9477482ed9037db8") {
+            const result = await User.find({ numerotel: req.body.value, secure: "577d7068826de925ea2aec01dbadf5e4" })
+            if (result.length != 0) {
+                res.json({
+                    _id: result[0]._id, name: result[0].name, adresse: result[0].adresse, createdate: result[0].createdate,
+                    matricule: result[0].matricule, secure: result[0].secure, numerotel: result[0].numerotel, status: 200
+                })
+
+            } else {
+                res.json({ status: 400 })
+            }
+
+        } else {
+            res.json({ status: 400 })
+        }
+    } catch (error) {
+        res.json({ status: 401 })
+    }
+
+})
+
+router.route('/chargement_colis').post(Auth, async (req, res) => {
+    var x = new Date()
+    try {
+        var user = await User.findById(req.userid)
+        if (user.secure == "2af264b99ff1d93e9477482ed9037db8") {
+            for (let i = 0; i < req.body.chargement.length; i++) {
+                var status = await Ordre.findById(req.body.chargement[i])
+                status.status = req.body.option
+                status.datefin = x.getFullYear() + "-" + (x.getMonth() + 1) + "-" + x.getDate()
+                await Ordre.findByIdAndUpdate(req.body.chargement[i], status)
+            }
+            res.json({ status: 200 })
+        } else {
+            res.json({ status: 400 })
+        }
+    } catch (error) {
+        res.json({ status: 400 })
+    }
+})
 
 
 module.exports = router

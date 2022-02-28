@@ -31,7 +31,8 @@ const postschema = new Schema({
     fournisseur: {
         type: String,
         default: ""
-    }
+    },
+    id_livreur: { type: String, default: "" }
 
 })
 
