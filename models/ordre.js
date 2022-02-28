@@ -27,7 +27,11 @@ const postschema = new Schema({
     frais_sup: { type: String, default: "0" },
     frais_colis: { type: String, default: "7" },
     frais_annulation: { type: String, default: "2" },
-    frais_inclus:{ type: Boolean, default: false }
+    frais_inclus: { type: Boolean, default: false },
+    fournisseur: {
+        type: String,
+        default: ""
+    }
 
 })
 

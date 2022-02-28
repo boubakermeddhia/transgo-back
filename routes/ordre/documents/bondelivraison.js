@@ -13,7 +13,6 @@ module.exports = ({ user, l }) => {
          frais = Number(l[i].frais_colis)
       }
 
-      
       let uricodeabaree = "https://barcode.tec-it.com/barcode.ashx?data=" + `${l[i]._id}` + "&code=Code128&translate-esc=on"
       let uriqrcode = "https://barcode.tec-it.com/barcode.ashx?data=" + `${l[i]._id}` + "&code=MobileQRCode"
 

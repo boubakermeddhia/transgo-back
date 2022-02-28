@@ -8,6 +8,7 @@ const bondesortie = require('./documents/bondesortie')
 const bonderetour = require('./documents/bonderetour')
 const bondelivraison = require('./documents/bondelivraison')
 const bondesortieemployer = require('./documents/bondesortieemployer')
+const historique_employer = require('./documents/historique_employer')
 const pdf = require('html-pdf')
 const { cwd } = require('process');
 const client = require('twilio')("AC721c9eb90eb56fa32bfa960732f7a6ce", "0bc3dc3d09aa0e537421d37e3273c06f")
@@ -180,6 +181,21 @@ router.route('/bondesortieemployer').post(Auth, async (req, res) => {
 })
 
 router.route('/fetch-bondesortieemployer').get(Auth, (req, res) => {
+    res.sendFile(cwd() + '/result.pdf')
+})
+
+router.route('/historique_employer').post(Auth, async (req, res) => {
+
+    pdf.create(historique_employer({ user: req.body.user, l: req.body.bondesortie }), {}).toFile('result.pdf', (err) => {
+        if (err) {
+            res.send(Promise.reject())
+        }
+        res.send(Promise.resolve());
+    })
+
+})
+
+router.route('/fetch-historique_employer').get(Auth, (req, res) => {
     res.sendFile(cwd() + '/result.pdf')
 })
 
