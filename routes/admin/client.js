@@ -105,7 +105,7 @@ router.route('/modifier_colis').post(Auth, async (req, res) => {
                             poidcolis: result[0].poidcolis,
                             adresse: result[0].adresse,
                             createdate: result[0].createdate,
-                            status: result[0].status,
+                            status: "Annulée",
                             idclient: result[0].idclient,
                             datefin: x.getFullYear() + "-" + (x.getMonth() + 1) + "-" + x.getDate(),
                             isActif: false,
