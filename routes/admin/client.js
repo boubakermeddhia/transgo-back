@@ -68,11 +68,11 @@ router.route('/getcolis/:id').get(Auth, async (req, res) => {
         if (user.secure == "2af264b99ff1d93e9477482ed9037db8") {
             var result1 = await Ordre.find({ _id: req.params.id })
             if (result1[0].status == "Livrée" || result1[0].status == "Annulée" || result1[0].status == "Colis en cours de livraison") {
-                var Livrer = [await User.findById(result1[0].id_livreur)]
+                 Livrer = [await User.findById(result1[0].id_livreur)]
             } else {
-                var Livrer = []
+                 Livrer = []
             }
-            var fournisseur = [await User.findById(result1[0].idclient)]
+             fournisseur = [await User.findById(result1[0].idclient)]
 
             res.json({ result: result1, Livrer, fournisseur, status: 200 })
         } else {
