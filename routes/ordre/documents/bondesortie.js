@@ -41,10 +41,10 @@ table, th, td {
   </tr>
   ${text}
 </table>
-<br>
-<br>
-<br>
-<br>
+<br/>
+<br/>
+<br/>
+<br/>
 </body>
 </html>
 
