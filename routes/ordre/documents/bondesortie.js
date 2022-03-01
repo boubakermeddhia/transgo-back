@@ -8,7 +8,7 @@ module.exports = ({ user, l }) => {
   for (let i = 0; i < l.length; i++) {
     somme = Number(l[i].prix) * Number(l[i].qte)
     let uricodeabaree = "https://barcode.tec-it.com/barcode.ashx?data=" + `${l[i]._id}` + "&code=Code128&translate-esc=on"
-    text = text + "<tr>" + "<th>" + String(i + 1) + "</th>" + "<th><br>" + `<img src=${uricodeabaree} style="width:80%;">` + "</th>" + "<th>" + l[i].name + "</th>" + "<th>" + l[i].adresse + "</th>" + "<th>" + l[i].numerotel + "</th>" + "<th>" + l[i].naturecolis + "</th>" + "</th>" + "<th>" + String(somme) + "</th>" + "</tr><br><br><br><br>"
+    text = text + "<tr>" + "<th>" + String(i + 1) + "</th>" + "<th><br>" + `<img src=${uricodeabaree} style="width:80%;">` + "</th>" + "<th>" + l[i].name + "</th>" + "<th>" + l[i].adresse + "</th>" + "<th>" + l[i].numerotel + "</th>" + "<th>" + l[i].naturecolis + "</th>" + "</th>" + "<th>" + String(somme) + "</th>" + "</tr>"
     somme=0
   }
   return `
@@ -41,7 +41,6 @@ table, th, td {
   </tr>
   ${text}
 </table>
-
 </body>
 </html>
 
