@@ -3,13 +3,23 @@ module.exports = ({ user, l }) => {
   const uriqrcode = "https://barcode.tec-it.com/barcode.ashx?data=" + "55555" + "&code=MobileQRCode"
   const somme_colis = l.length
   var somme = 0
+  var somme_total = 0
   var text = ''
+
+  for (let i = 0; i < somme_colis; i++) {
+
+    if (l[i].frais_inclus) {
+      somme_total = somme_total + Number(l[i].prix) * Number(l[i].qte) + Number(l[i].frais_sup)
+    } else {
+      somme_total = somme_total + Number(l[i].prix) * Number(l[i].qte) + Number(l[i].frais_sup) + Number(l[i].frais_colis)
+    }
+  }
 
   for (let i = 0; i < l.length; i++) {
     somme = Number(l[i].prix) * Number(l[i].qte)
     let uricodeabaree = "https://barcode.tec-it.com/barcode.ashx?data=" + `${l[i]._id}` + "&code=Code128&translate-esc=on"
     text = text + "<tr>" + "<th>" + String(i + 1) + "</th>" + "<th><br>" + `<img src=${uricodeabaree} style="width:80%;">` + "</th>" + "<th>" + l[i].name + "</th>" + "<th>" + l[i].adresse + "</th>" + "<th>" + l[i].numerotel + "</th>" + "<th>" + l[i].naturecolis + "</th>" + "</th>" + "<th>" + String(somme) + "</th>" + "</tr>"
-    somme=0
+    somme = 0
   }
   return `
 <!DOCTYPE html>
@@ -29,6 +39,7 @@ table, th, td {
 <br>
 <h5><b>Client(e):</b> ${user.name}, Téléphone: ${user.numerotel}, Adresse :${user.adresse}, MF/CIN :${user.matricule}</h5>
 <h5>Nombre Total de Colis : ${somme_colis}</h5>
+<h5>Somme Total : ${somme_total}</h5>
 <table style="width:100%">
   <tr>
   <th>Num</th>
