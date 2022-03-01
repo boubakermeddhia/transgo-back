@@ -85,6 +85,7 @@ router.route('/getcolis/:id').get(Auth, async (req, res) => {
 
 router.route('/modifier_colis').post(Auth, async (req, res) => {
     let nbr = 0
+    var x = new Date()
     try {
         const user = await User.findById(req.userid)
         if (user.secure == "2af264b99ff1d93e9477482ed9037db8") {
@@ -106,7 +107,7 @@ router.route('/modifier_colis').post(Auth, async (req, res) => {
                             createdate: result[0].createdate,
                             status: result[0].status,
                             idclient: result[0].idclient,
-                            datefin: result[0].datefin,
+                            datefin: x.getFullYear() + "-" + (x.getMonth() + 1) + "-" + x.getDate(),
                             isActif: false,
                             qte: "1",
                             frais_sup: "0",
