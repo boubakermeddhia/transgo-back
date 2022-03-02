@@ -187,6 +187,7 @@ router.route('/chargement_colis').post(Auth, async (req, res) => {
         if (user.secure == "2af264b99ff1d93e9477482ed9037db8") {
             for (let i = 0; i < req.body.chargement.length; i++) {
                 var status = await Ordre.findById(req.body.chargement[i])
+                status.id_livreur = req.userid
                 status.status = req.body.option
                 status.datefin = x.getFullYear() + "-" + (x.getMonth() + 1) + "-" + x.getDate()
                 await Ordre.findByIdAndUpdate(req.body.chargement[i], status)

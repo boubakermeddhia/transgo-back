@@ -67,7 +67,7 @@ router.route('/getcolis/:id').get(Auth, async (req, res) => {
         const user = await User.findById(req.userid)
         if (user.secure == "2af264b99ff1d93e9477482ed9037db8") {
             var result1 = await Ordre.find({ _id: req.params.id })
-            if (result1[0].status == "Livrée" || result1[0].status == "Annulée" || result1[0].status == "Colis en cours de livraison") {
+            if (result1[0].status == "Dépot" ||result1[0].status == "Livrée" || result1[0].status == "Annulée" || result1[0].status == "Colis en cours de livraison") {
                  Livrer = [await User.findById(result1[0].id_livreur)]
             } else {
                  Livrer = []
@@ -118,6 +118,7 @@ router.route('/modifier_colis').post(Auth, async (req, res) => {
                             id_livreur: result[0].id_livreur,
                         })
                     await newcolis.save()
+                    console.log(newcolis)
                 }
                 res.json({ status: 200 })
             } else {
