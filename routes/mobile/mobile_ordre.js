@@ -45,7 +45,7 @@ router.route('/getordrebyid').post(async (req, res) => {
                 ordre: {
                     _id: result[i]._id, numerotel: result[i].numerotel, name: result[i].name
                     , prix: result[i].prix, naturecolis: result[i].naturecolis
-                    , qte: result[i].qte, frais_annulation: result[i].frais_annulation, frais_colis: result[i].frais_colis, frais_sup: result[i].frais_sup, poidcolis: result[i].poidcolis, adresse: result[i].adresse, status: result[i].status, datefin: result[i].datefin
+                    , qte: result[i].qte, frais_inclus: result[i].frais_inclus, frais_annulation: result[i].frais_annulation, frais_colis: result[i].frais_colis, frais_sup: result[i].frais_sup, poidcolis: result[i].poidcolis, adresse: result[i].adresse, status: result[i].status, datefin: result[i].datefin
                 },
                 client: {
                     numerotel: user.numerotel, matricule: user.matricule, name: user.name, adresse: user.adresse, secure: user.secure
