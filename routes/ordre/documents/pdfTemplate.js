@@ -3,13 +3,13 @@ module.exports = ({ user, order }) => {
    const uricodeabaree = "https://barcode.tec-it.com/barcode.ashx?data=" + `${order._id}` + "&code=Code128&translate-esc=on"
    const uriqrcode = "https://barcode.tec-it.com/barcode.ashx?data=" + `${order._id}` + "&code=MobileQRCode"
    var somme = 0
-   var frais=0
+   var frais = 0
    if (order.frais_inclus) {
       somme = Number(order.prix) * Number(order.qte) + Number(order.frais_sup)
-      frais=0
+      frais = 0
    } else {
       somme = Number(order.prix) * Number(order.qte) + Number(order.frais_sup) + Number(order.frais_colis)
-      frais=Number(order.frais_colis)
+      frais = Number(order.frais_colis)
    }
    return `
 <!doctype html>
@@ -170,6 +170,10 @@ module.exports = ({ user, order }) => {
         <td>Designation:</td>
         <td>${order.naturecolis} </td>
      </tr>
+     <tr class="item">
+     <td>Prix Unitaire:</td>
+     <td>${order.prix}</td>
+         </tr>
      <tr class="item">
      <td>Quantite:</td>
      <td>${order.qte}</td>

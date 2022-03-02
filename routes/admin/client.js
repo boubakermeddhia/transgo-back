@@ -90,9 +90,12 @@ router.route('/modifier_colis').post(Auth, async (req, res) => {
         const user = await User.findById(req.userid)
         if (user.secure == "2af264b99ff1d93e9477482ed9037db8") {
             const result = await Ordre.find({ _id: req.body.id })
-            if (Number(result[0].qte) > Number(req.body.qte)) {
+            if (Number(result[0].qte) >= Number(req.body.qte)) {
                 nbr = Number(result[0].qte) - Number(req.body.qte)
                 result[0].qte = req.body.qte
+                result[0].frais_sup = req.body.frais_sup
+                result[0].frais_colis = req.body.frais_colis
+                result[0].frais_annulation = req.body.frais_annulation
                 result[0].isActif = false
                 await Ordre.findByIdAndUpdate(req.body.id, result[0])
                 for (let i = 0; i < nbr; i++) {
