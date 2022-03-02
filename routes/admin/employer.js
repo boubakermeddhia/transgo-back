@@ -94,6 +94,7 @@ router.route('/attribution_employer').post(Auth, async (req, res) => {
             for (let i = 0; i < employer.colis_pending.length; i++) {
                 const status = await Ordre.findById(employer.colis_pending[i])
                 status.status = "Colis en cours de livraison"
+                status.id_livreur=employer._id
                 await Ordre.findByIdAndUpdate(employer.colis_pending[i], status)
             }
             await User.findByIdAndUpdate(req.body.user, employer)
