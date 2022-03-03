@@ -17,12 +17,11 @@ const client = require('twilio')("AC721c9eb90eb56fa32bfa960732f7a6ce", "0bc3dc3d
 config = {
 
     // Export options
-    "directory": "/tmp",       // The directory the file gets written into if not using .toFile(filename, callback). default: '/tmp'
   
     // Papersize Options: http://phantomjs.org/api/webpage/property/paper-size.html
     "height": "10.5in",        // allowed units: mm, cm, in, px
     "width": "8in",            // allowed units: mm, cm, in, px
-    "format": "Letter",        // allowed units: A3, A4, A5, Legal, Letter, Tabloid
+    "format": "A4",        // allowed units: A3, A4, A5, Legal, Letter, Tabloid
     "orientation": "portrait", // portrait or landscape
   
     // Page options
@@ -34,29 +33,18 @@ config = {
       "bottom": "2in",
       "left": "1.5in"
     },
-  
-    paginationOffset: 1,       // Override the initial pagination number
     "header": {
-      "height": "45mm",
-      "contents": '<div style="text-align: center;">Author: Marc Bachmann</div>'
+      "height": "4mm",
     },
     "footer": {
       "height": "280mm",
-      "contents": {
-        first: 'Cover page',
-        2: 'Second page', // Any page number is working. 1-based index
-        default: '<span style="color: #444;">{{page}}</span>/<span>{{pages}}</span>', // fallback value
-        last: 'Last Page'
-      }
     },
   
     "zoomFactor": "1", // default is 1
-  
     // File options
     "type": "pdf",           // allowed file types: png, jpeg, pdf
     "quality": "75",         // only used for types png & jpeg
   
-
   }
 
 router.route('/getordre/:id').get(Auth, async (req, res) => {
