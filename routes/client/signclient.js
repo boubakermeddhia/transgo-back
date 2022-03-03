@@ -79,15 +79,16 @@ router.route('/payment').post(Auth, async (req, res) => {
     const use = req.body.user
     try {
         const admin = await User.findById(req.userid)
+        console.log(use)
         if (admin.secure == "2af264b99ff1d93e9477482ed9037db8") {
             const existinguser = await User.findById(use)
+            console.log(existinguser)
+
             if (existinguser.secure == "577d7068826de925ea2aec01dbadf5e4") {
                 if (existinguser) {
-                    const updateuser = await User.findByIdAndUpdate(existinguser._id, {
-                        numerotel: existinguser.numerotel,
-                        matricule: existinguser.matricule, name: existinguser.name, adresse: existinguser.adresse,
-                        payment: date
-                    }, { new: true })
+                    existinguser.payment = date
+                    const updateuser = await User.findByIdAndUpdate(use, existinguser,{ new: true })
+                    
                     return res.json({
                         _id: updateuser._id, name: updateuser.name, adresse: updateuser.adresse, createdate: updateuser.createdate,
                         matricule: updateuser.matricule, name: updateuser.name, payment: updateuser.payment, numerotel: updateuser.numerotel, status: 200
