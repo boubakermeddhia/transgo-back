@@ -100,6 +100,10 @@ module.exports = ({ user, l }) => {
      <td>${l[i].naturecolis} </td>
   </tr>
   <tr class="item">
+    <td>Prix Unitaire:</td>
+    <td>${l[i].prix}</td>
+ </tr>
+  <tr class="item">
     <td>Quantite:</td>
     <td>${l[i].qte}</td>
  </tr>
