@@ -34,7 +34,7 @@ config = {
       "left": "1.5in"
     },
     "header": {
-      "height": "4mm",
+      "height": "40000mm",
     },
     "footer": {
       "height": "280mm",
