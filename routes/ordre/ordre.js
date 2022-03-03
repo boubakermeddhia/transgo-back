@@ -20,13 +20,10 @@ config = {
   
     // Papersize Options: http://phantomjs.org/api/webpage/property/paper-size.html
     "height": "10.5in",        // allowed units: mm, cm, in, px
-    "width": "8in",            // allowed units: mm, cm, in, px
+    "width": "4cm",            // allowed units: mm, cm, in, px
     "format": "A4",        // allowed units: A3, A4, A5, Legal, Letter, Tabloid
     "orientation": "portrait", // portrait or landscape
-  
-    // Page options
-    "border": "0",             // default is 0, units: mm, cm, in, px
-  
+    
     "border": {
       "top": "2in",            // default is 0, units: mm, cm, in, px
       "right": "1in",
@@ -34,17 +31,11 @@ config = {
       "left": "1.5in"
     },
     "header": {
-      "height": "40000mm",
+      "height": "4cm",
     },
     "footer": {
       "height": "280mm",
-    },
-  
-    "zoomFactor": "1", // default is 1
-    // File options
-    "type": "pdf",           // allowed file types: png, jpeg, pdf
-    "quality": "75",         // only used for types png & jpeg
-  
+    },  
   }
 
 router.route('/getordre/:id').get(Auth, async (req, res) => {
