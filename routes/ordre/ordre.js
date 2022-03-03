@@ -14,29 +14,6 @@ const { cwd } = require('process');
 const client = require('twilio')("AC721c9eb90eb56fa32bfa960732f7a6ce", "0bc3dc3d09aa0e537421d37e3273c06f")
 
 
-config = {
-
-    // Export options
-  
-    // Papersize Options: http://phantomjs.org/api/webpage/property/paper-size.html
-    "height": "10.5in",        // allowed units: mm, cm, in, px
-    "width": "4cm",            // allowed units: mm, cm, in, px
-    "format": "A4",        // allowed units: A3, A4, A5, Legal, Letter, Tabloid
-    "orientation": "portrait", // portrait or landscape
-    
-    "border": {
-      "top": "2in",            // default is 0, units: mm, cm, in, px
-      "right": "1in",
-      "bottom": "2in",
-      "left": "1.5in"
-    },
-    "header": {
-      "height": "4cm",
-    },
-    "footer": {
-      "height": "280mm",
-    },  
-  }
 
 router.route('/getordre/:id').get(Auth, async (req, res) => {
     try {
@@ -158,7 +135,7 @@ router.route('/bondelivraison').post(Auth, async (req, res) => {
         }
     }
 
-    pdf.create(bondelivraison({ user: req.body.user, l: l },config), {}).toFile('result.pdf', (err) => {
+    pdf.create(bondelivraison({ user: req.body.user, l: l }), {}).toFile('result.pdf', (err) => {
         if (err) {
             res.send(Promise.reject());
         }
