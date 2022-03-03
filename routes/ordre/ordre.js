@@ -41,7 +41,7 @@ config = {
       "contents": '<div style="text-align: center;">Author: Marc Bachmann</div>'
     },
     "footer": {
-      "height": "28mm",
+      "height": "280mm",
       "contents": {
         first: 'Cover page',
         2: 'Second page', // Any page number is working. 1-based index
