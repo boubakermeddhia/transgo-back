@@ -122,7 +122,7 @@ module.exports = ({ user, l }) => {
 
       </table>
    </div>
-   <br><br><br><br><br>
+   <br><br><br><br>
    `
       somme = 0
       frais = 0
