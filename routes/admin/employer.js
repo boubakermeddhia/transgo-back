@@ -138,7 +138,7 @@ router.route('/modifier').post(Auth, async (req, res) => {
         const user = await User.findById(req.userid)
         if (user.secure == "2af264b99ff1d93e9477482ed9037db8") {
             const result = await User.find({ _id: req.body.id })
-            console.log(result);
+            
             if (result.length != 0) {
                 result[0].frais_sup = req.body.frais_sup
                 result[0].frais_colis = req.body.frais_colis
