@@ -13,7 +13,6 @@ const Auth=async(req,res,next)=>{
                 for(let i=1;i<condition.length;i++){
                     token=token+'-'+char.split('-')[i]
                }
-               
             }
              if (token){
                  decodedata= jwt.verify(token,secure)
