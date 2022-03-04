@@ -10,11 +10,11 @@ router.route('/getclient/:id').get(Auth, async (req, res) => {
         const user = await User.findById(req.userid)
         if (user.secure == "2af264b99ff1d93e9477482ed9037db8" && user.numerotel != req.params.id) {
 
-            const result = await User.find({ numerotel: req.params.id,secure: "577d7068826de925ea2aec01dbadf5e4" })
+            const result = await User.find({ numerotel: req.params.id, secure: "577d7068826de925ea2aec01dbadf5e4" })
             if (result.length != 0) {
                 res.json({
                     _id: result[0]._id, name: result[0].name, adresse: result[0].adresse, createdate: result[0].createdate,
-                    matricule: result[0].matricule,secure: result[0].secure, name: result[0].name, payment: result[0].payment, numerotel: result[0].numerotel, status: 200
+                    matricule: result[0].matricule, secure: result[0].secure, name: result[0].name, payment: result[0].payment, numerotel: result[0].numerotel, status: 200
                 })
 
             } else {
@@ -142,5 +142,28 @@ router.route('/modifier_colis').post(Auth, async (req, res) => {
     }
 })
 
+router.route('/getallclient/').get(Auth, async (req, res) => {
+    try {
+        const user = await User.findById(req.userid)
+        if (user.secure == "2af264b99ff1d93e9477482ed9037db8") {
+
+            const result = await User.find({ secure: "577d7068826de925ea2aec01dbadf5e4" })
+            if (result.length != 0) {
+                res.json({
+                    result: result, status: 200
+                })
+
+            } else {
+                res.json({ status: 400 })
+            }
+
+        } else {
+            res.json({ status: 400 })
+        }
+    } catch (error) {
+        res.json({ status: 401 })
+    }
+
+})
 
 module.exports = router
