@@ -94,7 +94,7 @@ router.route('/attribution_employer').post(Auth, async (req, res) => {
             for (let i = 0; i < employer.colis_pending.length; i++) {
                 const status = await Ordre.findById(employer.colis_pending[i])
                 status.status = "Colis en cours de livraison"
-                status.id_livreur=employer._id
+                status.id_livreur = employer._id
                 await Ordre.findByIdAndUpdate(employer.colis_pending[i], status)
             }
             await User.findByIdAndUpdate(req.body.user, employer)
@@ -108,7 +108,7 @@ router.route('/attribution_employer').post(Auth, async (req, res) => {
 })
 
 router.route('/nouvel_journee').post(Auth, async (req, res) => {
-
+    var x = new Date()
     try {
         const user = await User.findById(req.userid)
         if (user.secure == "2af264b99ff1d93e9477482ed9037db8") {
@@ -117,6 +117,7 @@ router.route('/nouvel_journee').post(Auth, async (req, res) => {
                 const colis = await Ordre.findById(employer.colis_pending[i])
                 if (colis.status == "Colis en cours de livraison") {
                     colis.status = "Dépot"
+                    colis.createdate = x.getFullYear() + "-" + (x.getMonth() + 1) + "-" + x.getDate()
                     await Ordre.findByIdAndUpdate(employer.colis_pending[i], colis)
                 }
             }
