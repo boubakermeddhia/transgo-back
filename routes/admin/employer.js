@@ -117,7 +117,7 @@ router.route('/nouvel_journee').post(Auth, async (req, res) => {
                 const colis = await Ordre.findById(employer.colis_pending[i])
                 if (colis.status == "Colis en cours de livraison") {
                     colis.status = "Dépot"
-                    colis.createdate = x.getFullYear() + "-" + (x.getMonth() + 1) + "-" + x.getDate()
+                    colis.datefin = x.getFullYear() + "-" + (x.getMonth() + 1) + "-" + x.getDate()
                     await Ordre.findByIdAndUpdate(employer.colis_pending[i], colis)
                 }
             }
