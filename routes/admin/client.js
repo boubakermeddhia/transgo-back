@@ -124,7 +124,7 @@ router.route('/modifier_colis').post(Auth, async (req, res) => {
                     var Livreur = await User.findById(newcolis.id_livreur)
                     let colis_info = Livreur.colis_info
                     let colis_pending = Livreur.colis_pending
-                    colis_info.push(newcolis._id)
+                    colis_info.push(newcolis)
                     colis_pending.push(newcolis._id)
                     Livreur.colis_info = colis_info
                     Livreur.colis_pending = colis_pending

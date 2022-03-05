@@ -123,8 +123,7 @@ router.route('/modifierordrebyemployer/:id/:status').get(Auth, async (req, res) 
             modifier.id_livreur = req.userid
             modifier.datefin = x.getFullYear() + "-" + (x.getMonth() + 1) + "-" + x.getDate()
             const ordre = await Ordre.findByIdAndUpdate(req.params.id, modifier, { new: true })
-            console.log(ordre)
-            adminverif.colis_info.push(...ordre)
+            adminverif.colis_info.push(ordre)
             await User.findByIdAndUpdate(adminverif._id, adminverif, { new: true })
 
             res.json({ status: 200 })
