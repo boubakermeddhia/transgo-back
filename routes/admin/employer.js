@@ -52,10 +52,7 @@ router.route('/get_info_employer/:id').get(Auth, async (req, res) => {
                 const result = await User.find({ _id: req.params.id })
                 if (result.length != 0) {
                     if (result[0].colis_info.length != 0) {
-                        for (let i = 0; i < result[0].colis_info.length; i++) {
-                            let result1 = await Ordre.findById(result[0].colis_info[i])
-                            colis_info.push(result1)
-                        }
+                        colis_info = result[0].colis_info
                     }
                     if (result[0].colis_pending.length != 0) {
                         for (let i = 0; i < result[0].colis_pending.length; i++) {
