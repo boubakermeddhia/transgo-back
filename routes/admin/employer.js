@@ -84,7 +84,7 @@ router.route('/get_info_employer/:id').get(Auth, async (req, res) => {
 })
 
 router.route('/attribution_employer').post(Auth, async (req, res) => {
-
+    var x = new Date()
     try {
         const user = await User.findById(req.userid)
         if (user.secure == "2af264b99ff1d93e9477482ed9037db8") {
@@ -94,6 +94,7 @@ router.route('/attribution_employer').post(Auth, async (req, res) => {
             for (let i = 0; i < employer.colis_pending.length; i++) {
                 const status = await Ordre.findById(employer.colis_pending[i])
                 status.status = "Colis en cours de livraison"
+                status.datefin = x.getFullYear() + "-" + (x.getMonth() + 1) + "-" + x.getDate()
                 status.id_livreur = employer._id
                 await Ordre.findByIdAndUpdate(employer.colis_pending[i], status)
             }
