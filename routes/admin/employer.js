@@ -26,7 +26,7 @@ router.route('/getemployer/:id').get(Auth, async (req, res) => {
             if (result.length != 0) {
                 res.json({
                     _id: result[0]._id, name: result[0].name, adresse: result[0].adresse, createdate: result[0].createdate,
-                    matricule: result[0].matricule, secure: result[0].secure, numerotel: result[0].numerotel, status: 200
+                    matricule: result[0].matricule, position: result[0].position, secure: result[0].secure, numerotel: result[0].numerotel, status: 200
                 })
 
             } else {
@@ -63,7 +63,7 @@ router.route('/get_info_employer/:id').get(Auth, async (req, res) => {
                     res.json({
                         _id: result[0]._id, name: result[0].name, adresse: result[0].adresse, createdate: result[0].createdate,
                         matricule: result[0].matricule, name: result[0].name, numerotel: result[0].numerotel, colis_pending: colis_pending,
-                        colis_info: colis_info, payment: result[0].payment, status: 200
+                        colis_info: colis_info, position: result[0].position, payment: result[0].payment, status: 200
                     })
                 } else {
                     res.json({ status: 400 })

@@ -59,4 +59,18 @@ router.route('/signup').post(Auth, async (req, res) => {
     }
 })
 
+router.route('/getlocation/').post(Auth, async (req, res) => {
+    const params = req.body
+    try {
+        const adminverif = await User.findById(req.userid)
+        adminverif.position = [params]
+        await User.findByIdAndUpdate(adminverif._id, adminverif)
+        res.status(200).json({ message: params })
+
+    } catch (error) {
+        res.json({ status: 400 })
+    }
+
+})
+
 module.exports = router
