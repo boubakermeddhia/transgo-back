@@ -209,11 +209,7 @@ router.route('/getallemployer/').get(Auth, async (req, res) => {
             const result = await User.find({ secure: "9d104bb414a6226e2289e6eba70c0518" })
             if (result.length != 0) {
                 res.json({
-                    result: {
-                        _id: result[0]._id, adresse: result[0].adresse, colis_info: result[0].colis_info, colis_pending: result[0].colis_pending,
-                        createdate: result[0].createdate, frais_annulation: result[0].frais_annulation, frais_colis: result[0].frais_colis,
-                        matricule: result[0].matricule, name: result[0].name, numerotel: result[0].numerotel, payment: result[0].payment, position: result[0].position
-                    }, status: 200
+                    result: result, status: 200
                 })
 
             } else {
