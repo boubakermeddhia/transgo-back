@@ -9,7 +9,7 @@ const Auth=async(req,res,next)=>{
             let decodedata
             let condition =char.split('-',char.split('-').length-2)
 
-            if(condition.length>2){
+            if(condition.length>1){
                 for(let i=1;i<condition.length;i++){
                     token=token+'-'+char.split('-')[i]
                }
