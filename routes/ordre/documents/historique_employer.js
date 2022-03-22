@@ -6,10 +6,18 @@ module.exports = ({ user, l }) => {
     let somme_total = 0
     let v = l.filter(res => res.status == "Livrée")
     for (let i = 0; i < v.length; i++) {
-        somme_total = somme_total + Number(v[i].prix) * Number(v[i].qte) + Number(v[i].frais_sup)
+        if (v[i].frais_inclus) {
+            somme_total = somme_total + Number(v[i].prix) * Number(v[i].qte) + Number(v[i].frais_sup)
+        } else {
+            somme_total = somme_total + Number(v[i].prix) * Number(v[i].qte) + Number(v[i].frais_sup) + Number(v[i].frais_colis)
+        }
     }
     for (let i = 0; i < l.length; i++) {
-        somme = Number(l[i].prix) * Number(l[i].qte) + Number(l[i].frais_sup) + Number(l[i].frais_colis)
+        if (l[i].frais_inclus) {
+            somme = Number(l[i].prix) * Number(l[i].qte) + Number(l[i].frais_sup)
+        } else {
+            somme = Number(l[i].prix) * Number(l[i].qte) + Number(l[i].frais_sup) + Number(l[i].frais_colis)
+        }
         let uricodeabaree = "https://barcode.tec-it.com/barcode.ashx?data=" + `${l[i]._id}` + "&code=Code128&translate-esc=on"
         text = text + "<tr>" + "<th>" + String(i + 1) + "</th>" + "<th><br>" + `<img src=${uricodeabaree} style="width:80%;">` + "</th>" + "<th>" + l[i].status + "</th>" + "<th>" + l[i].name + "</th>" + "<th>" + l[i].adresse + "</th>" + "<th>" + l[i].numerotel + "</th>" + "<th>" + l[i].naturecolis + "</th>" + "</th>" + "</th>" + "<th>" + String(somme) + "</th>" + "</tr>"
         somme = 0
