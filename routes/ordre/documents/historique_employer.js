@@ -6,11 +6,7 @@ module.exports = ({ user, l }) => {
     let somme_total = 0
     let v = l.filter(res => res.status == "Livrée")
     for (let i = 0; i < v.length; i++) {
-        if (v[i].frais_inclus) {
-            somme_total = somme_total + Number(v[i].prix) * Number(v[i].qte) + Number(v[i].frais_sup)
-        } else {
-            somme_total = somme_total + Number(v[i].prix) * Number(v[i].qte) + Number(v[i].frais_sup) + Number(v[i].frais_colis)
-        }
+        somme_total = somme_total + Number(v[i].prix) * Number(v[i].qte) + Number(v[i].frais_sup)
     }
     for (let i = 0; i < l.length; i++) {
         if (l[i].frais_inclus) {
