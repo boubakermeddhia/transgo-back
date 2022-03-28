@@ -32,7 +32,7 @@ module.exports = ({ user, l }) => {
    }
    </style>
    <body>
-   <img  src="https://i.postimg.cc/Gh8cMKJT/mts.jpg" alt="mts" border="0"
+   <img  src="https://www.linkpicture.com/q/mts.jpg" alt="mts" border="0"
        style="width:50%; max-width:200px; position: absolute; left: 370px;" >
    <h5>Historique de Livrasion</h5>
    <h6> Date : ${`${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`}</h6>
