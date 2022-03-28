@@ -102,7 +102,7 @@ module.exports = ({ user, order }) => {
                            </td>
                         <td>
                         <div style="align-self:center">
-                        <img  src="https://i.ibb.co/DpSnDC6/mts.jpg"
+                        <img   src="https://i.ibb.co/TLF5B8n/mts.jpg" alt="mts" border="0"
                         style="width:70%; max-width:200px;"> 
                         </div>
                         </td>

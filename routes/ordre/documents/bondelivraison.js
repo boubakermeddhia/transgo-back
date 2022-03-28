@@ -28,7 +28,7 @@ module.exports = ({ user, l }) => {
                         </td>
                      <td>
                      <div style="align-self:center">
-                     <img  src="https://i.ibb.co/DpSnDC6/mts.jpg"
+                     <img   src="https://i.ibb.co/TLF5B8n/mts.jpg" alt="mts" border="0"
                      style="width:50%; max-width:200px;"> 
                      </div>
                      </td>
