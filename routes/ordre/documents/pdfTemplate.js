@@ -102,7 +102,7 @@ module.exports = ({ user, order }) => {
                            </td>
                         <td>
                         <div style="align-self:center">
-                        <img  src="https://ml7r6wwlqi2t.i.optimole.com/aOggx0U-CP_OQ54l/w:auto/h:auto/q:auto/https://transgo.iamabdus.com/v1.1/wp-content/uploads/2019/11/trans-go-logo.svg"
+                        <img  src="https://i.ibb.co/DpSnDC6/mts.jpg"
                         style="width:70%; max-width:200px;"> 
                         </div>
                         </td>
