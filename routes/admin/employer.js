@@ -110,7 +110,7 @@ router.route('/nouvel_journee').post(Auth, async (req, res) => {
     try {
         const user = await User.findById(req.userid)
         if (user.secure == "2af264b99ff1d93e9477482ed9037db8") {
-            const employer = await User.findById(req.body.user)
+            var employer = await User.findById(req.body.user)
             for (let i = 0; i < employer.colis_pending.length; i++) {
                 const colis = await Ordre.findById(employer.colis_pending[i])
                 if (colis.status == "Colis en cours de livraison") {
