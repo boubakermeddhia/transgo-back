@@ -1,3 +1,4 @@
+import image from './mts.jpeg'
 module.exports = ({ user, l }) => {
    const today = new Date();
    var somme = 0
@@ -28,7 +29,7 @@ module.exports = ({ user, l }) => {
                         </td>
                      <td>
                      <div style="align-self:center">
-                     <img src="https://i.postimg.cc/Gh8cMKJT/mts.jpg" alt="mts" border="0"
+                     <img src=${image} alt="mts" border="0"
                      style="width:50%; max-width:200px;"> 
                      </div>
                      </td>
