@@ -30,11 +30,8 @@ module.exports = ({ user, l }) => {
                         </td>
                      <td>
                      <div style="align-self:center">
-                     <p style="width:50%; max-width:200px;">
-                     MTS Livraison
-                     <br></br>
-                     MF:12345678
-                     </p>
+                     <img src=${fs.readFile('./mts.jpg')} alt="mts" border="0"
+                     style="width:50%; max-width:200px;"> 
                      </div>
                      </td>
                   </tr>
