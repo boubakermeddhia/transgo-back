@@ -27,7 +27,7 @@ app.use('/admin/client',routeradminclient)
 app.use('/admin/employer',routeradminemployer)
 
 
-const uri="mongodb+srv://dhia:dhia@cluster0.nkcjd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+const uri="mongodb+srv://dhia_boubaker:dhia@cluster0.nkcjd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 mongoose.connect(uri,{ useNewUrlParser: true, useUnifiedTopology: true });
 const connection=mongoose.connection
 connection.once('open',()=>{
