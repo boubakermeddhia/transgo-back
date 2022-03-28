@@ -1,4 +1,3 @@
-var fs = require('fs')
 
 module.exports = ({ user, l }) => {
    const today = new Date();
@@ -30,7 +29,7 @@ module.exports = ({ user, l }) => {
                         </td>
                      <td>
                      <div style="align-self:center">
-                     <img src=${fs.readFile('./mts.jpg', (err, data) => { return data })} alt="mts" border="0"
+                     <img src="https://www.linkpicture.com/q/mts.jpg" alt="mts" border="0"
                      style="width:50%; max-width:200px;"> 
                      </div>
                      </td>
