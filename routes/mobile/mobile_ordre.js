@@ -116,12 +116,12 @@ router.route('/getmyjob').get(Auth, async (req, res) => {
 router.route('/modifierordrebyemployer/:id/:status').get(Auth, async (req, res) => {
     var x = new Date()
     try {
-        let adminverif = await User.findById(req.userid)
+        var adminverif = await User.findById(req.userid)
         if (adminverif.secure == "9d104bb414a6226e2289e6eba70c0518") {
-            let modifier = await Ordre.findById(req.params.id)
+            var modifier = await Ordre.findById(req.params.id)
             if (modifier.status == "Colis en cours de livraison" && req.userid != modifier.id_livreur) {
                 let user = await User.findById(modifier.id_livreur)
-                let nouvel = user.colis_pending.filter(item => item !== modifier._id)
+                let nouvel = user.colis_pending.filter(item => item != modifier._id)
                 user.colis_pending = nouvel
                 await User.findByIdAndUpdate(user._id, user, { new: true })
                 adminverif.colis_pending.push(modifier._id)
