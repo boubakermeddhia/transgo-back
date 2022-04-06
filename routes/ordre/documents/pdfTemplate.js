@@ -1,7 +1,7 @@
 module.exports = ({ user, order }) => {
    const today = new Date();
    const uriqrcode = "https://barcode.tec-it.com/barcode.ashx?data=" + `${order._id}` + "&code=MobileQRCode"
-   const uricodeabaree = "https://www.webarcode.com/barcode/image.php?code=" + `${order._id}` + "&type=C128B&xres=1&height=80&width=362&font=3&output=png&style=196"
+   const uricodeabaree = "https://www.webarcode.com/barcode/image.php?code=" + `${order._id}` + "&type=C128B&xres=1&height=80&width=390&font=3&output=png&style=196"
 
    var somme = 0
    var frais = 0
