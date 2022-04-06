@@ -9,8 +9,7 @@ const routerusermobile=require('./routes/mobile/mobile_user')
 const routeradminclient=require('./routes/admin/client')
 const routeradminemployer=require('./routes/admin/employer')
 const routercolis=require('./routes/admin/colis')
-
-
+const http = require('http')
 const app=express()
 
 
@@ -28,7 +27,7 @@ app.use('/admin/employer',routeradminemployer)
 
 
 const uri="mongodb+srv://dhia_boubaker:dhia@cluster0.nkcjd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-mongoose.connect(uri,{ useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(uri,{ useNewUrlParser: true, useUnifiedTopology: true })
 const connection=mongoose.connection
 connection.once('open',()=>{
     console.log("mongo db connection established successfully")

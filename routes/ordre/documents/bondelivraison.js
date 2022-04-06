@@ -14,7 +14,9 @@ module.exports = ({ user, l }) => {
          frais = Number(l[i].frais_colis)
       }
 
-      let uricodeabaree = "https://barcode.tec-it.com/barcode.ashx?data=" + `${l[i]._id}` + "&code=Code128&translate-esc=on"
+      //  "https://barcodegen.labelcloud.net:1301/barcode?type=Code128&data=" + `${l[i]._id}` + "&format=PNG&partnerid=nicelabel"
+      var uricodeabaree = "https://www.webarcode.com/barcode/image.php?code=" + `${l[i]._id}` + "&type=C128B&xres=1&height=80&width=362&font=3&output=png&style=196"
+      // var uricodeabaree = "https://barcode.tec-it.com/barcode.ashx?data=" + `${l[i]._id}` + "&code=Code128&translate-esc=on"
       let uriqrcode = "https://barcode.tec-it.com/barcode.ashx?data=" + `${l[i]._id}` + "&code=MobileQRCode"
 
       text = text + `<div class="invoice-box">

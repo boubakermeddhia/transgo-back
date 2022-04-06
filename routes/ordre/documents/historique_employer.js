@@ -18,7 +18,11 @@ module.exports = ({ user, l }) => {
         } else {
             somme = Number(l[i].prix) * Number(l[i].qte) + Number(l[i].frais_sup) + Number(l[i].frais_colis)
         }
-        let uricodeabaree = "https://barcode.tec-it.com/barcode.ashx?data=" + `${l[i]._id}` + "&code=Code128&translate-esc=on"
+
+        //  "https://barcodegen.labelcloud.net:1301/barcode?type=Code128&data=" + `${l[i]._id}` + "&format=PNG&partnerid=nicelabel"
+        var uricodeabaree = "https://www.webarcode.com/barcode/image.php?code=" + `${l[i]._id}` + "&type=C128B&xres=1&height=80&width=362&font=3&output=png&style=196"
+        // var uricodeabaree = "https://barcode.tec-it.com/barcode.ashx?data=" + `${l[i]._id}` + "&code=Code128&translate-esc=on"
+
         text = text + "<tr>" + "<th>" + String(i + 1) + "</th>" + "<th><br>" + `<img src=${uricodeabaree} style="width:80%;">` + "</th>" + "<th>" + l[i].status + "</th>" + "<th>" + l[i].name + "</th>" + "<th>" + l[i].adresse + "</th>" + "<th>" + l[i].numerotel + "</th>" + "<th>" + l[i].naturecolis + "</th>" + "</th>" + "</th>" + "<th>" + String(somme) + "</th>" + "</tr>"
         somme = 0
     }
