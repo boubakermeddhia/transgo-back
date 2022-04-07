@@ -132,7 +132,6 @@ router.route('/nouvel_journee').post(Auth, async (req, res) => {
 
 router.route('/modifier').post(Auth, async (req, res) => {
     try {
-        console.log(req.body);
         const user = await User.findById(req.userid)
         if (user.secure == "2af264b99ff1d93e9477482ed9037db8") {
             const result = await User.find({ _id: req.body.id })
@@ -156,7 +155,7 @@ router.route('/modifier').post(Auth, async (req, res) => {
 
 })
 
-router.route('/getemployer/').post(Auth, async (req, res) => {
+router.route('/getemployer').post(Auth, async (req, res) => {
     try {
         const user = await User.findById(req.userid)
         if (user.secure == "2af264b99ff1d93e9477482ed9037db8") {
@@ -164,7 +163,8 @@ router.route('/getemployer/').post(Auth, async (req, res) => {
             if (result.length != 0) {
                 res.json({
                     _id: result[0]._id, name: result[0].name, adresse: result[0].adresse, createdate: result[0].createdate,
-                    matricule: result[0].matricule, secure: result[0].secure, numerotel: result[0].numerotel, status: 200
+                    matricule: result[0].matricule, frais_annulation: result[0].frais_annulation, frais_sup: result[0].frais_sup, frais_colis: result[0].frais_colis, secure: result[0].secure
+                    , numerotel: result[0].numerotel, status: 200
                 })
 
             } else {

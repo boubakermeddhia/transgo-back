@@ -9,7 +9,6 @@ const routerusermobile=require('./routes/mobile/mobile_user')
 const routeradminclient=require('./routes/admin/client')
 const routeradminemployer=require('./routes/admin/employer')
 const routercolis=require('./routes/admin/colis')
-const http = require('http')
 const app=express()
 
 
