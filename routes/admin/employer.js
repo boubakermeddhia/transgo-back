@@ -90,10 +90,13 @@ router.route('/attribution_employer').post(Auth, async (req, res) => {
             employer.colis_pending = removeDupliactes(colis_pending)
             for (let i = 0; i < employer.colis_pending.length; i++) {
                 const status = await Ordre.findById(employer.colis_pending[i])
-                status.status = "Colis en cours de livraison"
-                status.datefin = x.getFullYear() + "-" + (x.getMonth() + 1) + "-" + x.getDate()
-                status.id_livreur = employer._id
-                await Ordre.findByIdAndUpdate(employer.colis_pending[i], status)
+                if (status.status != "Livrée" && status.status != "Annulée") {
+                    status.status = "Colis en cours de livraison"
+                    status.datefin = x.getFullYear() + "-" + (x.getMonth() + 1) + "-" + x.getDate()
+                    status.id_livreur = employer._id
+                    await Ordre.findByIdAndUpdate(employer.colis_pending[i], status)
+                }
+
             }
             await User.findByIdAndUpdate(req.body.user, employer)
             res.json({ status: 200 })
