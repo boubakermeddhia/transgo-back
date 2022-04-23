@@ -119,7 +119,7 @@ router.route('/modifierordrebyemployer/:id/:status').get(Auth, async (req, res) 
         var adminverif = await User.findById(req.userid)
         if (adminverif.secure == "9d104bb414a6226e2289e6eba70c0518") {
             var modifier = await Ordre.findById(req.params.id)
-            if (modifier.status == "Livrée" || modifier.status == "Annulée") {
+            if (modifier.status == "Livrée" || modifier.status == "Annulée" || modifier.status == "Dépot") {
                 res.json({ status: 400 })
             }
             if (modifier.status == "Colis en cours de livraison" && adminverif._id != modifier.id_livreur) {
