@@ -121,22 +121,25 @@ router.route('/modifierordrebyemployer/:id/:status').get(Auth, async (req, res) 
             var modifier = await Ordre.findById(req.params.id)
             if (modifier.status == "Livrée" || modifier.status == "Annulée" || modifier.status == "Pending") {
                 res.json({ status: 400 })
-            }
-            if ((modifier.status == "Colis en cours de livraison" || modifier.status == "Dépot") && (adminverif._id != modifier.id_livreur)) {
-                var user = await User.findById(modifier.id_livreur)
-                var nouvel = user.colis_pending.filter(item => item != modifier._id)
-                user.colis_pending = nouvel
-                await User.findByIdAndUpdate(user._id, user, { new: true })
-                adminverif.colis_pending.push(modifier._id)
-            }
-            modifier.status = req.params.status
-            modifier.id_livreur = req.userid
-            modifier.datefin = x.getFullYear() + "-" + (x.getMonth() + 1) + "-" + x.getDate()
-            const ordre = await Ordre.findByIdAndUpdate(req.params.id, modifier, { new: true })
-            adminverif.colis_info.push(ordre)
-            await User.findByIdAndUpdate(adminverif._id, adminverif, { new: true })
+            } else {
 
-            res.json({ status: 200 })
+                if ((modifier.status == "Colis en cours de livraison" || modifier.status == "Dépot") && (adminverif._id != modifier.id_livreur)) {
+                    var user = await User.findById(modifier.id_livreur)
+                    var nouvel = user.colis_pending.filter(item => item != modifier._id)
+                    user.colis_pending = nouvel
+                    await User.findByIdAndUpdate(user._id, user, { new: true })
+                    adminverif.colis_pending.push(modifier._id)
+                }
+                modifier.status = req.params.status
+                modifier.id_livreur = req.userid
+                modifier.datefin = x.getFullYear() + "-" + (x.getMonth() + 1) + "-" + x.getDate()
+                const ordre = await Ordre.findByIdAndUpdate(req.params.id, modifier, { new: true })
+                adminverif.colis_info.push(ordre)
+                await User.findByIdAndUpdate(adminverif._id, adminverif, { new: true })
+
+                res.json({ status: 200 })
+                
+            }
         } else {
             res.json({ status: 400 })
         }
