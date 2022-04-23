@@ -122,7 +122,7 @@ router.route('/modifierordrebyemployer/:id/:status').get(Auth, async (req, res) 
             if (modifier.status == "Livrée" || modifier.status == "Annulée") {
                 res.json({ status: 400 })
             }
-            if (modifier.status == "Colis en cours de livraison" && req.userid != modifier.id_livreur) {
+            if (modifier.status == "Colis en cours de livraison" && adminverif._id != modifier.id_livreur) {
                 var user = await User.findById(modifier.id_livreur)
                 var nouvel = user.colis_pending.filter(item => item != modifier._id)
                 user.colis_pending = nouvel
