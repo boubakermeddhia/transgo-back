@@ -126,6 +126,9 @@ router.route('/modifierordrebyemployer/:id/:status').get(Auth, async (req, res) 
             //     await User.findByIdAndUpdate(user._id, user, { new: true })
             //     adminverif.colis_pending.push(modifier._id)
             // }
+            if (modifier.status == "Livrée" || modifier.status == "Annulée") {
+                res.json({ status: 400 })
+            }
             modifier.status = req.params.status
             modifier.id_livreur = req.userid
             modifier.datefin = x.getFullYear() + "-" + (x.getMonth() + 1) + "-" + x.getDate()
