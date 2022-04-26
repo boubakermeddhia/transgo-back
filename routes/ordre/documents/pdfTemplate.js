@@ -173,7 +173,7 @@ module.exports = ({ user, order }) => {
      </tr>
      <tr class="item">
      <td>Prix Unitaire:</td>
-     <td>${order.prix}</td>
+     <td>${order.prix} TND</td>
          </tr>
      <tr class="item">
      <td>Quantite:</td>
@@ -181,11 +181,11 @@ module.exports = ({ user, order }) => {
          </tr>
          <tr class="item">
          <td>Frais de livraison:</td>
-         <td>${frais}</td>
+         <td>${frais} TND</td>
         </tr>
          <tr class="item">
  <td>Frais Suplémentaire:</td>
- <td>${order.frais_sup}</td>
+ <td>${order.frais_sup} TND</td>
 </tr>
     <tr class="item">
        <td>Prix Total (Tous frais inclus) :</td>

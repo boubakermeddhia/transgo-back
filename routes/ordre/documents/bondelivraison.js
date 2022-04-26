@@ -104,7 +104,7 @@ module.exports = ({ user, l }) => {
   </tr>
   <tr class="item">
     <td>Prix Unitaire:</td>
-    <td>${l[i].prix}</td>
+    <td>${l[i].prix} TND</td>
  </tr>
   <tr class="item">
     <td>Quantite:</td>
