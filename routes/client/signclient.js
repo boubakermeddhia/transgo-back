@@ -86,8 +86,8 @@ router.route('/payment').post(Auth, async (req, res) => {
             if (existinguser.secure == "577d7068826de925ea2aec01dbadf5e4") {
                 if (existinguser) {
                     existinguser.payment = date
-                    const updateuser = await User.findByIdAndUpdate(use, existinguser,{ new: true })
-                    
+                    const updateuser = await User.findByIdAndUpdate(use, existinguser, { new: true })
+
                     return res.json({
                         _id: updateuser._id, name: updateuser.name, adresse: updateuser.adresse, createdate: updateuser.createdate,
                         matricule: updateuser.matricule, name: updateuser.name, payment: updateuser.payment, numerotel: updateuser.numerotel, status: 200
@@ -147,6 +147,27 @@ router.route('/accee/employer').post(Auth, async (req, res) => {
         }
         else {
             res.json({ status: 400 })
+        }
+    } catch (error) {
+        res.json({ status: 400 })
+    }
+})
+
+router.route('/location').post(Auth, async (req, res) => {
+    const colis = req.body.id
+    try {
+        const admin = await User.findById(req.userid)
+        if (admin.secure == "577d7068826de925ea2aec01dbadf5e4") {
+            const existingOrdre = await Ordre.findById(colis)
+            if (Number(existingOrdre.frais_sup) >= 0.5 && existingOrdre.idclient == admin._id) {
+                const Livreur = await User.findById(existingOrdre.id_livreur)
+                res.json({ status: 200, postion: Livreur.position })
+            } else {
+                res.json({ status: 400 })
+            }
+        }
+        else {
+            res.json({ status: 400, message: "frais non Payée" })
         }
     } catch (error) {
         res.json({ status: 400 })
