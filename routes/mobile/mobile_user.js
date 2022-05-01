@@ -63,7 +63,7 @@ router.route('/getlocation/').post(Auth, async (req, res) => {
     const params = req.body
     try {
         const adminverif = await User.findById(req.userid)
-        adminverif.position = [params]
+        adminverif.position = [params, { lastTime: new Date() }]
         await User.findByIdAndUpdate(adminverif._id, adminverif)
         res.status(200).json({ message: params })
 
