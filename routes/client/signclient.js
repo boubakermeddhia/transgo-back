@@ -161,7 +161,7 @@ router.route('/location').post(Auth, async (req, res) => {
             const existingOrdre = await Ordre.findById(colis)
             if (Number(existingOrdre.frais_sup) >= 0.5 && existingOrdre.idclient == admin._id) {
                 const Livreur = await User.findById(existingOrdre.id_livreur)
-                res.json({ status: 200, postion: Livreur.position })
+                res.json({ status: 200, position: Livreur.position })
             } else {
                 res.json({ status: 400 })
             }
